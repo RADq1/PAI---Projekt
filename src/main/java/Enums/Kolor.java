@@ -10,7 +10,7 @@ public enum Kolor {
     NIEBIESKI,
     SZARY,
     SREBRNY,
-    ZOLTY,
+    ZOLTY
     //TODO
     //Ew jakies kolory, ale chyba styknie
 }
