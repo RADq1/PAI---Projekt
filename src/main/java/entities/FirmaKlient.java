@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class FirmaKlient {
     @Id
     @GeneratedValue
-    Long id;
+    Long idFirmaKlient;
     @Column
     String NIP;
     @Column
