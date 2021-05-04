@@ -20,9 +20,10 @@ public class Samochod {
     @Column
     String numerRej;
     @Column
+    @Enumerated
     Kolor kolor;
     @Column
-    String pojemność;
+    String pojemnosc;
     @Column
     String przebieg;
     @Column
