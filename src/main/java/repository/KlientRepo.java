@@ -1,8 +1,9 @@
-package interfaces;
+package repository;
 
+import entities.Klient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface PracownikRepo extends JpaRepository<Long, PracownikRepo> {
+
+public interface KlientRepo extends JpaRepository<Klient,Long> {
 }
