@@ -1,8 +1,8 @@
-package Services;
+package wyp.aut.wypa.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.SamochodRepository;
+import wyp.aut.wypa.repository.SamochodRepository;
 
 @Service
 public class SamochodServiceImpl implements SamochodService {

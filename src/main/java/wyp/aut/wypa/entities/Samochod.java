@@ -1,9 +1,13 @@
-package entities;
+package wyp.aut.wypa.entities;
 
-import Enums.Kolor;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import wyp.aut.wypa.Enums.Kolor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Samochod {
@@ -38,5 +42,17 @@ public class Samochod {
     String OC;
     @Column
     Boolean czyWypozyczone=false;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "oddzial_id")
+    private Oddzial samochod_oddzialu;
+
+    @OneToOne(mappedBy = "wypozyczonySamochod")
+    private Wypozyczenie wypozyczenie;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usterkaPojazdu")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Usterki> usterkiAuta = new ArrayList<>();
 
 }

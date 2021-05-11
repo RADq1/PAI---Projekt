@@ -1,6 +1,4 @@
-package Enums;
-
-import javax.persistence.Enumerated;
+package wyp.aut.wypa.Enums;
 
 public enum Stanowisko {
     Zarzad,

@@ -1,8 +1,7 @@
-package repository;
+package wyp.aut.wypa.repository;
 
-import entities.Pracownik;
+import wyp.aut.wypa.entities.Pracownik;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 
 public interface PracownikRepo extends JpaRepository<Pracownik,Long> {
