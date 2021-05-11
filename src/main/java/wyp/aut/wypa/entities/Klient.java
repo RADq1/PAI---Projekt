@@ -33,6 +33,7 @@ public class Klient {
 
     //TODO Chyba zapomnielismy o płci i mailu? ale czy jest konieczna?
 
+    //Patryk po co ta relacja?
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "firma_Klient")
     private FirmaKlient pracownik_firmy;
