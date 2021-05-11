@@ -1,6 +1,6 @@
-package entities;
+package wyp.aut.wypa.entities;
 
-import Enums.Stanowisko;
+import wyp.aut.wypa.Enums.Stanowisko;
 
 import javax.persistence.*;
 
@@ -18,4 +18,11 @@ public class Pracownik {
     //@Column
     //TODO
     //oddział
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "oddzial_id")
+    private Oddzial pracownik_oddzialu;
+
+
+    @OneToOne(mappedBy = "czasPracyPracownika")
+    private CzasPracy czasPracy;
 }
