@@ -1,4 +1,4 @@
-package Enums;
+package wyp.aut.wypa.Enums;
 //Enumy podajemy w tabeli w formie liczby, od zera
 public enum Kolor {
     BIALY,
