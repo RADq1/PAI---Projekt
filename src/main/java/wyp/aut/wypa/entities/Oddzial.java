@@ -14,6 +14,10 @@ public class Oddzial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
+    String Miejscowosc;
+    //TODO
+    //Właściciel jak ma być zrobiony w sumie?
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "samochod_oddzialu")
     @LazyCollection(LazyCollectionOption.FALSE)
