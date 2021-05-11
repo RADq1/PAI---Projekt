@@ -37,11 +37,18 @@ public class KlientController {
             System.out.println("Dane nie są nullami");
             if(login.length() <= 15 & PESEL.length() <= 11 & nrTel.length() <= 9 & haslo.length() <= 30)
             {
-                //odwolanie do funkcji w serwisie "registerKlient" z parametrami, ktore zostaly podane w HTML'u, za pomocą thymeleaf
-                klientService.addKlient(new Klient(login, haslo, imie, nazwisko, nrTel, PESEL));
-                //odwolanie sie do imienia, potrzebne do wyswietlenia np. Witaj, ${imie}
-                model.addAttribute("imie", imie);
-                return "clientPanel";
+                if(!klientService.checkLogin(login))
+                {
+                    //odwolanie do funkcji w serwisie "registerKlient" z parametrami, ktore zostaly podane w HTML'u, za pomocą thymeleaf
+                    klientService.addKlient(new Klient(login, haslo, imie, nazwisko, nrTel, PESEL));
+                    //odwolanie sie do imienia, potrzebne do wyswietlenia np. Witaj, ${imie}
+                    model.addAttribute("imie", imie);
+                    return "clientPanel";
+                } else {
+                    errorRegister = "Podana nazwa użytkownika już istnieje!";
+                    model.addAttribute("errorRegister", errorRegister);
+                    return "errorRegister";
+                }
             } else {
                 errorRegister = "Sprawdź poprawną długość danych!";
                 model.addAttribute("errorRegister", errorRegister);
@@ -57,4 +64,30 @@ public class KlientController {
 
 
     //TODO logowanie
+    public String errorLogin;
+    @RequestMapping("/login")
+    public String loginKlient(
+            @RequestParam(name = "login") String login,
+            @RequestParam(name = "haslo") String haslo,
+            Model model
+    )
+    {
+        if(klientService.checkLogin(login))
+        {
+            if(klientService.checkPassword(login,haslo)){
+                return "clientPanel";
+            }
+            else{
+                errorLogin = "Niepoprawne haslo.";
+                model.addAttribute("errorLogin", errorLogin);
+                return "errorLogin";
+            }
+        } else
+        {
+            errorLogin = "Podany użytkownik nie istnieje.";
+            model.addAttribute("errorLogin", errorLogin);
+            return "errorLogin";
+
+        }
+    }
 }

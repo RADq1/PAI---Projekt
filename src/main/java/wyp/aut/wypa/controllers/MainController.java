@@ -36,9 +36,9 @@ public class MainController {
     public String clientPanel()
     {return "clientPanel";}
     //logowanie
-    @GetMapping ("/login")
-    public String login()
-    {return "login";}
+    @GetMapping ("/logins")
+    public String logins()
+    {return "logins";}
 
     //TODO jest problem bo moj html login sie buguje z loginem od spring security, poprawic
 

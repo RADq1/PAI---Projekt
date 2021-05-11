@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import wyp.aut.wypa.entities.Klient;
 import wyp.aut.wypa.repository.KlientRepo;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
 @Service
 public class KlientServiceImpl implements KlientService {
     //połączenie serwisu z klientRepo
@@ -19,5 +22,34 @@ public class KlientServiceImpl implements KlientService {
     public void addKlient(Klient klient) {
         //System.out.println("test"); //testowy print, czy dziala
         klientRepo.save(klient); // zapisanie klienta
+
+
     }
+    @Override
+    public Boolean checkLogin(String login){
+        //zwraca true, jak podany użytkownik istnieje.
+        return klientRepo.existsByLogin(login);
+    }
+
+
+    @Override
+    public Boolean checkPassword(String login, String haslo){
+
+       Optional<Klient> klient = klientRepo.findByLogin(login);
+        /*System.out.println(haslo); //sa
+        System.out.println(klient.get().getHaslo()); //sa */
+        String hasloKlient = klient.get().getHaslo();
+
+        //Porównywanie stringów w Javie (zamiast == -> equals())
+        if(hasloKlient.equals(haslo)){
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+
+
 }
