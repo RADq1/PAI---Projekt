@@ -27,4 +27,10 @@ public class Oddzial {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Pracownik> pracownicy = new ArrayList<>();
 
+    public Oddzial() {
+    }
+
+    public Oddzial(String miejscowosc) {
+        Miejscowosc = miejscowosc;
+    }
 }

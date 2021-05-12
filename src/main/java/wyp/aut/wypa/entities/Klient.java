@@ -21,8 +21,9 @@ public class Klient {
     String nazwisko;
     @Column(length = 9) //dlugosc numeru telefonu - 9 cyfer
     String nrTel;
-    @Column(length = 11) //dlugosc peselu - 11 cyfer
-            //TODO UNIKALNY PESEL
+
+    //TODO UNIKALNY PESEl //zrobione
+    @Column(unique = true, length = 11)
     String PESEL;
     //login oraz haslo dodatkowo do indywidualnych kont
     @Column(unique = true, length = 15)
@@ -34,6 +35,7 @@ public class Klient {
     //TODO Chyba zapomnielismy o płci i mailu? ale czy jest konieczna?
 
     //Patryk po co ta relacja?
+    //klient moze byc sluzbowy i dlatego jest powiazany z firma
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "firma_Klient")
     private FirmaKlient pracownik_firmy;

@@ -25,4 +25,14 @@ public class Pracownik {
 
     @OneToOne(mappedBy = "czasPracyPracownika")
     private CzasPracy czasPracy;
+
+    public Pracownik() {
+    }
+
+    public Pracownik(String imie, String nazwisko, Stanowisko stanowisko, Oddzial pracownik_oddzialu) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.stanowisko = stanowisko;
+        this.pracownik_oddzialu = pracownik_oddzialu;
+    }
 }
