@@ -15,9 +15,9 @@ public class Pracownik {
     String nazwisko;
     @Column
     Stanowisko stanowisko;
-    //@Column
-    //TODO
-    //oddział
+
+    //TODO to samo co u Klienta, login, haslo, email.
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "oddzial_id")
     private Oddzial pracownik_oddzialu;

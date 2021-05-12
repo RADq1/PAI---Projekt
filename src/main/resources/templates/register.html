@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+</head>
+<body>
+<center>
+<h2>Rejestracja</h2>
+<form th:action="@{/add}">
+
+    <p>(*)Podaj login:</p>
+    <input type="text" th:name="login"/><br>
+    <p>Maximum 15 znaków, nie może się powtarzać</p>
+    <p>(*)Podaj hasło: </p>
+    <input type="text" th:name="haslo"/><br>
+    <p>Maximum 30 znaków</p>
+    <p>(*)Podaj imię: </p>
+    <input type="text" th:name="imie"/><br>
+    <p>(*)Podaj nazwisko: </p>
+    <input type="text" th:name="nazwisko"/><br>
+    <p>(*)Podaj numer telefonu: </p>
+    <input type="text" th:name="nrTel"/><br>
+    <p>Maximum 9 znaków</p>
+    <p>(*)Podaj PESEL: </p>
+    <input type="text" th:name="PESEL"/><br>
+    <p>Maximum 11 znaków</p>
+
+    <h5> Wszystkie pola z * są wymagane do rejestracji</h5>
+
+
+    <input type="submit"/>
+    </center>
+</form>
+</body>
+</html>
