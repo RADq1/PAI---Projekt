@@ -4,13 +4,16 @@ package wyp.aut.wypa.entities;
 import com.sun.istack.NotNull;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class Klient {
+public class Klient implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,10 +30,14 @@ public class Klient {
     String PESEL;
     //login oraz haslo dodatkowo do indywidualnych kont
     @Column(unique = true, length = 15)
-    String login;
+    String username;
 
-    @Column(length = 30)
-    String haslo;
+    @Column
+    String password;
+    @Column
+    String role;
+
+
 
     //TODO Chyba zapomnielismy o płci i mailu? ale czy jest konieczna?
 
@@ -46,12 +53,50 @@ public class Klient {
 
     //Konstruktor do wypelnienia rejestracji
     public Klient(String login, String haslo, String imie, String nazwisko, String nrTel, String PESEL) {
-        this.login = login;
-        this.haslo = haslo;
+        this.username = login;
+        this.password = haslo;
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.nrTel = nrTel;
         this.PESEL = PESEL;
+    }
+
+    public Klient() {
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true ;
     }
 
     public Long getIdKlient() {
@@ -94,23 +139,19 @@ public class Klient {
         this.PESEL = PESEL;
     }
 
-    public String getLogin() {
-        return login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getHaslo() {
-        return haslo;
+    public String getRole() {
+        return role;
     }
 
-    public void setHaslo(String haslo) {
-        this.haslo = haslo;
-    }
-
-    public Klient() {
-
+    public void setRole(String role) {
+        this.role = role;
     }
 }

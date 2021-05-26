@@ -28,17 +28,17 @@ public class KlientServiceImpl implements KlientService {
     @Override
     public Boolean checkLogin(String login){
         //zwraca true, jak podany użytkownik istnieje.
-        return klientRepo.existsByLogin(login);
+        return klientRepo.existsByUsername(login);
     }
 
 
     @Override
     public Boolean checkPassword(String login, String haslo){
 
-       Optional<Klient> klient = klientRepo.findByLogin(login);
+       Optional<Klient> klient = klientRepo.findByUsername(login);
         /*System.out.println(haslo); //sa
         System.out.println(klient.get().getHaslo()); //sa */
-        String hasloKlient = klient.get().getHaslo();
+        String hasloKlient = klient.get().getPassword();
 
         //Porównywanie stringów w Javie (zamiast == -> equals())
         if(hasloKlient.equals(haslo)){

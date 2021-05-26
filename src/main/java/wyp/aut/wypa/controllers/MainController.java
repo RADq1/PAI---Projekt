@@ -40,7 +40,7 @@ public class MainController {
     public String logins()
     {return "logins";}
 
-    //TODO jest problem bo moj html login sie buguje z loginem od spring security, poprawic
+
 
 
 }
