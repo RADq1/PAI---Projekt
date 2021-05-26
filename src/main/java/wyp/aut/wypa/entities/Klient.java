@@ -25,7 +25,7 @@ public class Klient implements UserDetails {
     @Column
     String nazwisko;
     @Column(length = 9) //dlugosc numeru telefonu - 9 cyfer
-    String nrTel;
+            String nrTel;
 
     //TODO UNIKALNY PESEl //zrobione
     @Column(unique = true, length = 11)
@@ -33,11 +33,14 @@ public class Klient implements UserDetails {
     //login oraz haslo dodatkowo do indywidualnych kont
     @Column(unique = true, length = 15)
     String username;
+    @Column(name = "email")
+    String email;
 
     @Column
     String password;
     @Column
     String role;
+
 
 
 
@@ -53,14 +56,15 @@ public class Klient implements UserDetails {
     @OneToMany(cascade = CascadeType.MERGE, mappedBy = "KlientKtoryWypozyczylAuto")
     private List<Wypozyczenie> autaWypozyczonePrzezKlienta = new ArrayList<>();
 
-    //Konstruktor do wypelnienia rejestracji
-    public Klient(String login, String haslo, String imie, String nazwisko, String nrTel, String PESEL) {
-        this.username = login;
-        this.password = haslo;
+    public Klient(String imie, String nazwisko, String nrTel, String PESEL, String username, String password, String role, String email) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.nrTel = nrTel;
         this.PESEL = PESEL;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.email = email;
     }
 
     public Klient() {
@@ -98,7 +102,7 @@ public class Klient implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true ;
+        return true;
     }
 
     public Long getIdKlient() {
@@ -155,5 +159,13 @@ public class Klient implements UserDetails {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

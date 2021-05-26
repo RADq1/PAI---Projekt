@@ -1,6 +1,7 @@
 package wyp.aut.wypa.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import wyp.aut.wypa.entities.Klient;
 import wyp.aut.wypa.repository.KlientRepo;
@@ -11,16 +12,18 @@ import java.util.Optional;
 @Service
 public class KlientServiceImpl implements KlientService {
     //połączenie serwisu z klientRepo
-    private final KlientRepo klientRepo;
-    @Autowired
-    public KlientServiceImpl(KlientRepo klientRepo) {
+    private KlientRepo klientRepo;
+    private PasswordEncoder passwordEncoder;
+
+    public KlientServiceImpl(KlientRepo klientRepo, PasswordEncoder passwordEncoder) {
         this.klientRepo = klientRepo;
+        this.passwordEncoder = passwordEncoder;
     }
-    //Override uzywamy, bo juz istnieje
-    //W serwisie Impl (jak sama nazwa wskazuje - implementujemy nasz serwis)
+
     @Override
     public void addKlient(Klient klient) {
-        //System.out.println("test"); //testowy print, czy dziala
+        klient.setPassword(passwordEncoder.encode(klient.getPassword()));
+        klient.setRole("ROLE_USER");
         klientRepo.save(klient); // zapisanie klienta
 
 

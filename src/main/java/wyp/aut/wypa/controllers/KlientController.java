@@ -18,7 +18,8 @@ public class KlientController {
         this.klientService = klientService;
     }
 
-    //RequestMapping do rejestracji klienta
+   /* //RequestMapping do rejestracji klienta
+    //Czemu request mapping?
     public String errorRegister;
     @RequestMapping("/add")
     public String addKlient(
@@ -61,33 +62,6 @@ public class KlientController {
             return "errorRegister";
         }
     }
+*/
 
-
-    //TODO logowanie
-    public String errorLogin;
-    @RequestMapping("/login")
-    public String loginKlient(
-            @RequestParam(name = "login") String login,
-            @RequestParam(name = "haslo") String haslo,
-            Model model
-    )
-    {
-        if(klientService.checkLogin(login))
-        {
-            if(klientService.checkPassword(login,haslo)){
-                return "clientPanel";
-            }
-            else{
-                errorLogin = "Niepoprawne haslo.";
-                model.addAttribute("errorLogin", errorLogin);
-                return "errorLogin";
-            }
-        } else
-        {
-            errorLogin = "Podany użytkownik nie istnieje.";
-            model.addAttribute("errorLogin", errorLogin);
-            return "errorLogin";
-
-        }
-    }
 }
