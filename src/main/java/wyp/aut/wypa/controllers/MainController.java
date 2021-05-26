@@ -3,6 +3,7 @@ package wyp.aut.wypa.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import wyp.aut.wypa.Services.KlientService;
 
 
@@ -32,15 +33,25 @@ public class MainController {
     public String register()
     {return "register";}
     //panel klienta
-    @GetMapping ("/clientPanel")
-    public String clientPanel()
+    @GetMapping ("/clientPanel1")
+    @ResponseBody
+    public String clientPanel1()
     {return "clientPanel";}
     //logowanie
     @GetMapping ("/logins")
     public String logins()
     {return "logins";}
 
-
+    @GetMapping("/clientPanel")
+    public String clientPanel()
+    {
+        return "clientPanel";
+    }
+    @GetMapping("/employeePanel")
+    public String employeePanel()
+    {
+        return "employeePanel";
+    }
 
 
 }

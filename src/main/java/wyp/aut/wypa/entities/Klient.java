@@ -5,11 +5,13 @@ import com.sun.istack.NotNull;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -48,7 +50,7 @@ public class Klient implements UserDetails {
     private FirmaKlient pracownik_firmy;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "KlientKtoryWypozyczylAuto")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "KlientKtoryWypozyczylAuto")
     private List<Wypozyczenie> autaWypozyczonePrzezKlienta = new ArrayList<>();
 
     //Konstruktor do wypelnienia rejestracji
@@ -66,7 +68,7 @@ public class Klient implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singleton(new SimpleGrantedAuthority(role));
     }
 
     @Override

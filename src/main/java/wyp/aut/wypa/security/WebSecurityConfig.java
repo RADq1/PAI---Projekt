@@ -33,8 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.headers().disable();
         http.authorizeRequests()
-                .antMatchers("/clientPanel").authenticated()
+                .antMatchers("/employeePanel").hasAnyAuthority("ROLE_EMPLOYEE")
+                .antMatchers("/clientPanel").hasAnyAuthority("ROLE_USER")
                 .and()
-                .formLogin().defaultSuccessUrl("/clientPanel");
+                .formLogin();
     }
 }
