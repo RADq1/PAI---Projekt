@@ -32,14 +32,14 @@ public class MainController {
     @PostMapping("/register")
     public String register(Klient klient) {
         klientService.addKlient(klient);
-        return "register";
+        return "home";
     }
 
     //strona rejestracji
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("user", new Klient());
-        return "home";
+        return "register";
     }
 
     //panel klienta
@@ -49,11 +49,6 @@ public class MainController {
         return "clientPanel";
     }
 
-    //logowanie
-    @GetMapping("/logins")
-    public String logins() {
-        return "logins";
-    }
 
     @GetMapping("/clientPanel")
     public String clientPanel() {
