@@ -41,13 +41,10 @@ public class Klient implements UserDetails {
     @Column
     String role;
 
+    private  boolean isEnabled;
 
 
 
-    //TODO Chyba zapomnielismy o płci i mailu? ale czy jest konieczna?
-
-    //Patryk po co ta relacja?
-    //klient moze byc sluzbowy i dlatego jest powiazany z firma
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "firma_Klient")
     private FirmaKlient pracownik_firmy;
@@ -102,7 +99,7 @@ public class Klient implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
 
     public Long getIdKlient() {
@@ -168,4 +165,9 @@ public class Klient implements UserDetails {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
 }

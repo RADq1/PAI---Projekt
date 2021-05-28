@@ -6,20 +6,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import wyp.aut.wypa.Services.KlientService;
 import wyp.aut.wypa.entities.Klient;
+import wyp.aut.wypa.entities.Token;
+import wyp.aut.wypa.repository.KlientRepo;
+import wyp.aut.wypa.repository.TokenRepo;
 
 
 @Controller
 public class MainController {
     //podpiecie serwisu do controllera
     private KlientService klientService;
-    private PasswordEncoder passwordEncoder;
+    private KlientRepo klientRepo;
+    private TokenRepo tokenRepo;
 
-    public MainController(KlientService klientService, PasswordEncoder passwordEncoder) {
+    public MainController(KlientService klientService, KlientRepo klientRepo, TokenRepo tokenRepo) {
         this.klientService = klientService;
-        this.passwordEncoder = passwordEncoder;
+        this.klientRepo = klientRepo;
+        this.tokenRepo = tokenRepo;
     }
 
     //strona główna
@@ -60,5 +66,13 @@ public class MainController {
         return "employeePanel";
     }
 
+    @GetMapping("/token")
+    public String singup(@RequestParam String value) {
+        Token byValue = tokenRepo.findByValue(value);
+        Klient appUser = byValue.getKlient();
+        appUser.setEnabled(true);
+        klientRepo.save(appUser);
+        return "home";
+    }
 
 }
