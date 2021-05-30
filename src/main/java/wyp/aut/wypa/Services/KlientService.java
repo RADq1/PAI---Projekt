@@ -2,6 +2,7 @@ package wyp.aut.wypa.Services;
 
 
 import wyp.aut.wypa.entities.Klient;
+import wyp.aut.wypa.entities.Samochod;
 
 public interface KlientService {
     //w interfejsie tworzymy funkcje z parametrami
@@ -11,5 +12,13 @@ public interface KlientService {
 
     public Boolean checkPassword(String login, String haslo);
 
+<<<<<<< Updated upstream
+=======
+    public void sendToken(Klient klient);
+
+    public void orderCar(Samochod samochod);
+
+
+>>>>>>> Stashed changes
 
 }

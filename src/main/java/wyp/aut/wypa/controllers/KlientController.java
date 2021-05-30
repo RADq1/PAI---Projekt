@@ -62,6 +62,7 @@ public class KlientController {
         }
     }
 
+<<<<<<< Updated upstream
 
     //TODO logowanie
     public String errorLogin;
@@ -90,4 +91,8 @@ public class KlientController {
 
         }
     }
+=======
+    //TODO FUNKCJONALNOSCI KLIENTA, WYPOZYCZENIE AUT
+
+>>>>>>> Stashed changes
 }

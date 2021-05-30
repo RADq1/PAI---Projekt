@@ -3,6 +3,11 @@ package wyp.aut.wypa.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wyp.aut.wypa.entities.Klient;
+<<<<<<< Updated upstream
+=======
+import wyp.aut.wypa.entities.Samochod;
+import wyp.aut.wypa.entities.Token;
+>>>>>>> Stashed changes
 import wyp.aut.wypa.repository.KlientRepo;
 
 import javax.swing.text.html.Option;
@@ -52,4 +57,16 @@ public class KlientServiceImpl implements KlientService {
 
 
 
+<<<<<<< Updated upstream
+=======
+    }
+
+
+    @Override
+    public void orderCar(Samochod samochod)
+    {
+        
+    }
+
+>>>>>>> Stashed changes
 }
