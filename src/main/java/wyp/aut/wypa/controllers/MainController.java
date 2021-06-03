@@ -34,6 +34,12 @@ public class MainController {
         return "home";
     }
 
+    //strona główna
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
 
     @PostMapping("/register")
     public String register(Klient klient) {

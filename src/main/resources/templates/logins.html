@@ -4,17 +4,12 @@
     <meta charset="UTF-8">
     <title>Logowanie</title>
 </head>
-<body>
-<center>
-    <form th:action="@{/login}">
-<h1> Logowanie:</h1>
-<p>Podaj login:</p>
-<input type="text" th:name="login"/><br>
-<p>Podaj hasło: </p>
-<input type="text" th:name="haslo"/><br>
-
-<input type="submit"/>
-    </form>
-</center>
+<body><form th:action="@{/login-process}" th:method="post">
+    <input th:type="text" th:name="email"><br>
+    <input th:type="password" th:name="password"><br>
+    <input th:type="submit" th:value=”zaloguj">
+</form>
+<p class="error" th:if="${param.error == 'true'}"
+   th:value="Podany login lub hasło są nieprawidłowe"></p>
 </body>
 </html>

@@ -44,6 +44,7 @@ public class Samochod {
     @Column
     Boolean czyWypozyczone=false;
 
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "oddzial_id")
     private Oddzial samochod_oddzialu;
@@ -87,5 +88,101 @@ public class Samochod {
         this.terminPrzegladu = terminPrzegladu;
         this.OC = OC;
         this.samochod_oddzialu = samochod_oddzialu;
+    }
+
+    public String getMarka() {
+        return marka;
+    }
+
+    public void setMarka(String marka) {
+        this.marka = marka;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getRocznik() {
+        return rocznik;
+    }
+
+    public void setRocznik(int rocznik) {
+        this.rocznik = rocznik;
+    }
+
+    public String getNumerRej() {
+        return numerRej;
+    }
+
+    public void setNumerRej(String numerRej) {
+        this.numerRej = numerRej;
+    }
+
+    public Kolor getKolor() {
+        return kolor;
+    }
+
+    public void setKolor(Kolor kolor) {
+        this.kolor = kolor;
+    }
+
+    public Double getPojemnosc() {
+        return pojemnosc;
+    }
+
+    public void setPojemnosc(Double pojemnosc) {
+        this.pojemnosc = pojemnosc;
+    }
+
+    public int getPrzebieg() {
+        return przebieg;
+    }
+
+    public void setPrzebieg(int przebieg) {
+        this.przebieg = przebieg;
+    }
+
+    public Double getSpalanie() {
+        return spalanie;
+    }
+
+    public void setSpalanie(Double spalanie) {
+        this.spalanie = spalanie;
+    }
+
+    public Double getCena24() {
+        return cena24;
+    }
+
+    public void setCena24(Double cena24) {
+        this.cena24 = cena24;
+    }
+
+    public LocalDate getTerminPrzegladu() {
+        return terminPrzegladu;
+    }
+
+    public void setTerminPrzegladu(LocalDate terminPrzegladu) {
+        this.terminPrzegladu = terminPrzegladu;
+    }
+
+    public LocalDate getOC() {
+        return OC;
+    }
+
+    public void setOC(LocalDate OC) {
+        this.OC = OC;
+    }
+
+    public Boolean getCzyWypozyczone() {
+        return czyWypozyczone;
+    }
+
+    public void setCzyWypozyczone(Boolean czyWypozyczone) {
+        this.czyWypozyczone = czyWypozyczone;
     }
 }
