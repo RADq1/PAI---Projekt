@@ -2,18 +2,23 @@ package wyp.aut.wypa.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import wyp.aut.wypa.entities.Oddzial;
 import wyp.aut.wypa.entities.Samochod;
+import wyp.aut.wypa.repository.OddzialRepo;
 import wyp.aut.wypa.repository.SamochodRepository;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class AdminController {
 
     @Autowired
     SamochodRepository samochodRepository;
-
+    @Autowired
+    OddzialRepo oddzialRepo;
 
 
     @GetMapping("/adminPanel")
@@ -23,11 +28,18 @@ public class AdminController {
     }
 
     @GetMapping("/auta")
-    @ResponseBody
-    public List<Samochod> allCars()
+    public String allCars(Model model)
     {
-        return samochodRepository.findAll();
+        model.addAttribute("samochody",samochodRepository.findAll());
+        return "AllCars";
     }
+    @GetMapping("/auta/{id}")
+    public String detailedInformation(Model model, @PathVariable Long id)
+    {
+        model.addAttribute("car",samochodRepository.findById(id).get());
+        return "carInfo";
+    }
+
 
     @GetMapping("/pracownicy")
     @ResponseBody
@@ -54,9 +66,9 @@ public class AdminController {
     @ResponseBody
     public String AllCarsFactory(@PathVariable String oddzialID)
     {
-
         return oddzialID;
     }
+
 
 
 

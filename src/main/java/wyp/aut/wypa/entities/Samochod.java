@@ -47,15 +47,15 @@ public class Samochod {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "oddzial_id")
-    private Oddzial samochod_oddzialu;
+     Oddzial samochod_oddzialu;
 
     @OneToOne(mappedBy = "wypozyczonySamochod")
-    private Wypozyczenie wypozyczenie;
+     Wypozyczenie wypozyczenie;
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usterkaPojazdu")
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Usterki> usterkiAuta = new ArrayList<>();
+     List<Usterki> usterkiAuta = new ArrayList<>();
 
     public Samochod() {
     }
@@ -185,4 +185,38 @@ public class Samochod {
     public void setCzyWypozyczone(Boolean czyWypozyczone) {
         this.czyWypozyczone = czyWypozyczone;
     }
+
+    public Long getIdSamochod() {
+        return idSamochod;
+    }
+
+    public void setIdSamochod(Long idSamochod) {
+        this.idSamochod = idSamochod;
+    }
+
+    public Oddzial getSamochod_oddzialu() {
+        return samochod_oddzialu;
+    }
+
+    public void setSamochod_oddzialu(Oddzial samochod_oddzialu) {
+        this.samochod_oddzialu = samochod_oddzialu;
+    }
+
+    public Wypozyczenie getWypozyczenie() {
+        return wypozyczenie;
+    }
+
+    public void setWypozyczenie(Wypozyczenie wypozyczenie) {
+        this.wypozyczenie = wypozyczenie;
+    }
+
+    public List<Usterki> getUsterkiAuta() {
+        return usterkiAuta;
+    }
+
+    public void setUsterkiAuta(List<Usterki> usterkiAuta) {
+        this.usterkiAuta = usterkiAuta;
+    }
+
+
 }
