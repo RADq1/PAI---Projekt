@@ -5,12 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import wyp.aut.wypa.entities.Oddzial;
-import wyp.aut.wypa.entities.Samochod;
 import wyp.aut.wypa.repository.OddzialRepo;
 import wyp.aut.wypa.repository.SamochodRepository;
-
-import java.util.List;
 
 @Controller
 public class AdminController {
@@ -39,7 +35,12 @@ public class AdminController {
         model.addAttribute("car",samochodRepository.findById(id).get());
         return "carInfo";
     }
-
+    @GetMapping("/factory/{id}")
+    public String detailedFactoryInformation(Model model,@PathVariable Long id)
+    {
+        model.addAttribute("oddzial", oddzialRepo.findById(id).get());
+        return "factoryInfo";
+    }
 
     @GetMapping("/pracownicy")
     @ResponseBody
@@ -56,19 +57,19 @@ public class AdminController {
     }
 
     @GetMapping("/przychody")
-    @ResponseBody
     public String stonks()
     {
-        return "przychody";
+        return "factoryInfo";
     }
 
-    @GetMapping("/adminPanel/{oddzialID}}")
-    @ResponseBody
-    public String AllCarsFactory(@PathVariable String oddzialID)
+
+    @GetMapping("/factory/{id}/auta")
+    public String carsInFactory(@PathVariable Long id,Model model)
     {
-        return oddzialID;
+       model.addAttribute("samochody",samochodRepository.findAll());
+       model.addAttribute("oddzial",oddzialRepo.findById(id).get());
+        return "carInFactory";
     }
-
 
 
 

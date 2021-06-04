@@ -57,4 +57,12 @@ public class Oddzial {
     public void setPracownicy(List<Pracownik> pracownicy) {
         this.pracownicy = pracownicy;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
