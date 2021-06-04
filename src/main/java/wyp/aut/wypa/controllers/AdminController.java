@@ -57,6 +57,7 @@ public class AdminController {
     }
 
     @GetMapping("/przychody")
+    @ResponseBody
     public String stonks()
     {
         return "factoryInfo";

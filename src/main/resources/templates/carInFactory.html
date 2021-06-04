@@ -17,9 +17,10 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a th:href="@{/factory/1}">Bydgoszcz</a>
-            <a th:href="@{/auta/1}">Toruń</a>
-            <a href="gdansk">Gdańsk</a>
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
         </div>
     </div>
 </div>
@@ -35,7 +36,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr th:if="${samochod.samochod_oddzialu.miejscowosc == oddzial.miejscowosc}" th:each="samochod : ${samochody}">
+        <tr th:if="${samochod.samochod_oddzialu.id == oddzial.id}" th:each="samochod : ${samochody}">
             <td><span th:text="${samochod.marka}"> Rocznik </span></td>
             <td><span th:text="${samochod.model}"> Numer Rejestracyjny </span></td>
             <td><span th:text="${samochod.numerRej}"> Kolor </span></td>

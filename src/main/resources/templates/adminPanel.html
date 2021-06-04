@@ -9,18 +9,19 @@
 
 
 <div class="navbar">
-    <a th:href="auta">AUTA</a>
-    <a th:href="pracownicy" >PRACOWNICY</a>
-    <a href="statystyki">STATYSTYKI</a>
-    <a href="przychody">PRZYCHODY</a>
+    <a th:href="@{/auta/}">AUTA</a>
+    <a th:href="@{/pracownicy/}" >PRACOWNICY</a>
+    <a th:href="@{/statystyki/}">STATYSTYKI</a>
+    <a th:href="@{/przychody/}">PRZYCHODY</a>
     <div class="dropdown">
         <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a th:href="@{/factory/1}">Bydgoszcz</a>
-            <a th:href="@{/auta/1}">Toruń</a>
-            <a href="gdansk">Gdańsk</a>
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
         </div>
     </div>
 </div>

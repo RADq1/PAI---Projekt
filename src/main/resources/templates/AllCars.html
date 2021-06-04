@@ -18,25 +18,15 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a th:action="@{/allCarsFactory}" th:method="get">Bydgoszcz</a>
-            <a href="torun">Toruń</a>
-            <a href="gdansk">Gdańsk</a>
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
         </div>
     </div>
 </div>
 
-<!--this.marka = marka;
-        this.model = model;
-        this.rocznik = rocznik;
-        this.numerRej = numerRej;
-        this.kolor = kolor;
-        this.pojemnosc = pojemnosc;
-        this.przebieg = przebieg;
-        this.spalanie = spalanie;
-        this.cena24 = cena24;
-        this.terminPrzegladu = terminPrzegladu;
-        this.OC = OC;
-        this.samochod_oddzialu = samochod_oddzialu;-->
+
 <table>
     <thead>
     <tr>
