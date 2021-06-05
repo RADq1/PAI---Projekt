@@ -1,6 +1,8 @@
 package wyp.aut.wypa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import wyp.aut.wypa.Services.KlientService;
 import wyp.aut.wypa.entities.Klient;
+import wyp.aut.wypa.entities.Oddzial;
 import wyp.aut.wypa.entities.Token;
 import wyp.aut.wypa.repository.KlientRepo;
 import wyp.aut.wypa.repository.TokenRepo;
@@ -79,6 +82,11 @@ public class MainController {
         appUser.setEnabled(true);
         klientRepo.save(appUser);
         return "home";
+    }
+    @EventListener(ApplicationReadyEvent.class)
+    public void whenStartApplication(){
+        //public Klient(String imie, String nazwisko, String nrTel, String PESEL, String username, String password, String role, String email)
+        //klientRepo.save(new Klient("Radosław", "Gackowski", "661614088", "98110704523", "radgac000", "blablabla", "ROLE_USER", "1998radq@gmail.com", true));
     }
 
 }

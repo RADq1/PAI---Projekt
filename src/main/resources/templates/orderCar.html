@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz wynajęcia auta</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="orderCar" >Wynajmij auto</a>
+    <a href="" >Reklamacje</a>
+    <a href="clientPanel">Wróc do panelu klienta</a>
+</div>
+<br>
+<!-- formularz do wypelnienia, zeby wynajac auto) -->
+<form>
+    <h1>Formularz wynajęcia auta</h1>
+    <!-- Select do wyboru oddzialu z którego wezmiemy auto -->
+<select>
+    <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
+</select>
+    <p> TODO: <br>
+        Marka ,model, moc, spalanie auta, cena za dzień, początek wynajmu auta, koniec wynajmu auta</p>
+    <button-submit>Wynajmij auto!</button-submit>
+</form>
+</body>
+</html>

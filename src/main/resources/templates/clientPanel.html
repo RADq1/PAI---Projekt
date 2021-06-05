@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Panel Klienta</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
 </head>
 <body>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="orderCar" >Wynajmij auto</a>
+    <a href="" >Reklamacje</a>
+   <!-- <div class="dropdown-content">
+        <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+        <a th:href="@{/factory/2}">TORUŃ</a>
+        <a th:href="@{/factory/3}">GDAŃSK</a>
+    </div> -->
+<!--    <a th:href="@{'/factory/'+ ">HOME</a>
+    <a th:href="#" >#</a>
+    <a href="statystyki">STATYSTYKI</a>
+    <a href="przychody">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div> -->
+</div>
 <div>Witaj, <div th:text="${imie}"></div>
 <p>Tutaj będą wszystkie opcje klienta</p>
 <p>- wynajęcia wybranego modelu auta <br>
@@ -15,6 +41,6 @@
     Wynajęcie auta:<br>
     - Widoczny formularz z następującymi polami:<br>
     Marka ,model, moc, spalanie auta, cena za dzień, początek wynajmu auta, koniec wynajmu auta</p>
-
+</div>
 </body>
 </html>
