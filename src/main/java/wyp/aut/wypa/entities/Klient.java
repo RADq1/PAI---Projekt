@@ -4,13 +4,18 @@ package wyp.aut.wypa.entities;
 import com.sun.istack.NotNull;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
-public class Klient {
+public class Klient implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,36 +25,81 @@ public class Klient {
     @Column
     String nazwisko;
     @Column(length = 9) //dlugosc numeru telefonu - 9 cyfer
-    String nrTel;
-    @Column(length = 11) //dlugosc peselu - 11 cyfer
-            //TODO UNIKALNY PESEL
+            String nrTel;
+
+    //TODO UNIKALNY PESEl //zrobione
+    @Column(unique = true, length = 11)
     String PESEL;
     //login oraz haslo dodatkowo do indywidualnych kont
     @Column(unique = true, length = 15)
-    String login;
+    String username;
+    @Column(name = "email")
+    String email;
 
-    @Column(length = 30)
-    String haslo;
+    @Column
+    String password;
+    @Column
+    String role;
 
-    //TODO Chyba zapomnielismy o płci i mailu? ale czy jest konieczna?
+    private  boolean isEnabled;
 
-    //Patryk po co ta relacja?
+
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "firma_Klient")
     private FirmaKlient pracownik_firmy;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "KlientKtoryWypozyczylAuto")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "KlientKtoryWypozyczylAuto")
     private List<Wypozyczenie> autaWypozyczonePrzezKlienta = new ArrayList<>();
 
-    //Konstruktor do wypelnienia rejestracji
-    public Klient(String login, String haslo, String imie, String nazwisko, String nrTel, String PESEL) {
-        this.login = login;
-        this.haslo = haslo;
+    public Klient(String imie, String nazwisko, String nrTel, String PESEL, String username, String password, String role, String email) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.nrTel = nrTel;
         this.PESEL = PESEL;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.email = email;
+    }
+
+    public Klient() {
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singleton(new SimpleGrantedAuthority(role));
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return isEnabled;
     }
 
     public Long getIdKlient() {
@@ -92,23 +142,32 @@ public class Klient {
         this.PESEL = PESEL;
     }
 
-    public String getLogin() {
-        return login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getHaslo() {
-        return haslo;
+    public String getRole() {
+        return role;
     }
 
-    public void setHaslo(String haslo) {
-        this.haslo = haslo;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public Klient() {
-
+    public String getEmail() {
+        return email;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
 }

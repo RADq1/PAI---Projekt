@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegółowe informacje </title>
+    <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="navbar">
+    <a th:href="adminPanel">START</a>
+    <a th:href="auta">AUTA</a>
+    <a th:href="pracownicy" >PRACOWNICY</a>
+    <a href="statystyki">STATYSTYKI</a>
+    <a href="przychody">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:action="@{/allCarsFactory}" th:method="get">Bydgoszcz</a>
+            <a href="torun">Toruń</a>
+            <a href="gdansk">Gdańsk</a>
+        </div>
+    </div>
+</div>
+
+<h1>Szczegółowe informacje dotyczące auta <td><span th:text="${car.marka}"/> <td><span th:text="${car.model}"/> </td>  </h1>
+<!--//todo wprowadzic informacje o aucie-->
+</body>
+</html>

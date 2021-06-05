@@ -12,13 +12,10 @@ import java.util.Optional;
 
 @Repository
 public interface KlientRepo extends JpaRepository<Klient,Long> {
-    public Boolean existsByLogin(String login);
+    Boolean existsByUsername(String login);
 
 
-    public Optional<Klient> findByLogin(String login);
-
-    public String findByHaslo(String haslo);
-
+    Optional<Klient> findByUsername(String login);
 
 
 

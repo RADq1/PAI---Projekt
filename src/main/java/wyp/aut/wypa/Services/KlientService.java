@@ -11,5 +11,8 @@ public interface KlientService {
 
     public Boolean checkPassword(String login, String haslo);
 
+    public void sendToken(Klient klient);
+
+
 
 }

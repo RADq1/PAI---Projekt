@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "security.user.name",
+      "type": "java.lang.String",
+      "description": "Description for security.user.name."
+    },
+    {
+      "name": "security.oauth2.client.client-id",
+      "type": "java.lang.String",
+      "description": "Description for security.oauth2.client.client-id."
+    }
+  ] }

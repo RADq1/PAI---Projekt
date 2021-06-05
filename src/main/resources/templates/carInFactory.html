@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegółowe informacje </title>
+    <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="navbar">
+    <a th:href="@{'/factory/'+ ${oddzial.id}}">HOME</a>
+    <a th:href="pracownicy" >PRACOWNICY</a>
+    <a href="statystyki">STATYSTYKI</a>
+    <a href="przychody">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th> MARKA </th>
+            <th> MODEL </th>
+            <th> NUMER REJESTRACYJNY </th>
+            <th> EDYTUJ </th>
+            <th> USUŃ </th>
+            <th> POKAŻ SZCZEGÓŁY </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:if="${samochod.samochod_oddzialu.id == oddzial.id}" th:each="samochod : ${samochody}">
+            <td><span th:text="${samochod.marka}"> Rocznik </span></td>
+            <td><span th:text="${samochod.model}"> Numer Rejestracyjny </span></td>
+            <td><span th:text="${samochod.numerRej}"> Kolor </span></td>
+            <td><a th:href="@{register}">Edytuj</a></td>
+            <td><a th:href="@{register}">Usun</a></td>
+            <td><a th:href="@{'/auta/'+ ${samochod.idSamochod}}">Pokaz szczegóły</a></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
