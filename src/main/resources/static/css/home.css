@@ -3,9 +3,7 @@ h2 {
     font-size: 1.5em;
     text-transform: uppercase;
 }
-h1 {
-    text-align: center;
-}
+
 strong {
     font-weight: 700;
     background-color: yellow;
@@ -86,4 +84,8 @@ p {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+.body
+{
+    background-image: url("/image/car.jpg");
 }

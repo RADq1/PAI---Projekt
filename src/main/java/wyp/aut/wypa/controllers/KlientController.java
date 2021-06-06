@@ -13,6 +13,7 @@ import wyp.aut.wypa.Services.KlientService;
 import wyp.aut.wypa.entities.Klient;
 import wyp.aut.wypa.entities.Oddzial;
 import wyp.aut.wypa.repository.OddzialRepo;
+import wyp.aut.wypa.repository.SamochodRepository;
 import wyp.aut.wypa.repository.WypozyczanieRepo;
 
 @Controller
@@ -21,11 +22,13 @@ public class KlientController {
     private final KlientService klientService;
     private WypozyczanieRepo wypozyczanieRepo;
     private OddzialRepo oddzialRepo;
+    private SamochodRepository samochodRepository;
     @Autowired
-    public KlientController(KlientService klientService, WypozyczanieRepo wypozyczanieRepo, OddzialRepo oddzialRepo) {
+    public KlientController(KlientService klientService, WypozyczanieRepo wypozyczanieRepo, OddzialRepo oddzialRepo, SamochodRepository samochodRepository) {
         this.wypozyczanieRepo = wypozyczanieRepo;
         this.klientService = klientService;
         this.oddzialRepo = oddzialRepo;
+        this.samochodRepository = samochodRepository;
     }
     @EventListener(ApplicationReadyEvent.class)
     public void addOddzial(){
@@ -38,6 +41,17 @@ public class KlientController {
     public String orderCar(Model model){
         model.addAttribute("oddzial",oddzialRepo.findAll());
         return "orderCar";
+    }
+
+    @GetMapping("/listCars")
+    public String listCars(Model model){
+        model.addAttribute("samochody",samochodRepository.findAll());
+        return "listCars";
+    }
+
+    @GetMapping("/complaint")
+    public String complaint(){
+        return "complaint";
     }
 
 

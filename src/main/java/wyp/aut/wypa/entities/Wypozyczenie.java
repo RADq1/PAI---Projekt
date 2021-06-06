@@ -5,8 +5,6 @@ import java.time.LocalDate;
 
 @Entity
 public class Wypozyczenie {
-    //TODO
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

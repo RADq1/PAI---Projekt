@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <style>
+        body{
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;}
+    </style>
     <meta charset="UTF-8">
     <title>Panel Klienta</title>
     <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
@@ -9,7 +17,8 @@
 <div class="navbar">
     <a href="../" >Strona główna</a>
     <a href="orderCar" >Wynajmij auto</a>
-    <a href="" >Reklamacje</a>
+    <a href="complaint" >Reklamacje</a>
+    <a href="listCars">Lista samochodów</a>
    <!-- <div class="dropdown-content">
         <a th:href="@{/factory/1}">BYDGOSZCZ</a>
         <a th:href="@{/factory/2}">TORUŃ</a>
@@ -31,8 +40,7 @@
         </div>
     </div> -->
 </div>
-<div>Witaj, <div th:text="${imie}"></div>
-<p>Tutaj będą wszystkie opcje klienta</p>
+
 <p>- wynajęcia wybranego modelu auta <br>
     - anulowanie, reklamacja usługi<br>
     - przejrzenia ofert wypożyczalni dla wybranego oddziału<br>

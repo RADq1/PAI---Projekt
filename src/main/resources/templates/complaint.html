@@ -10,13 +10,13 @@
             background-attachment: fixed;}
     </style>
     <meta charset="UTF-8">
-    <title>Formularz wynajęcia auta</title>
+    <title>Reklamacja</title>
     <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="navbar">
     <a href="../" >Strona główna</a>
-    <a href="complaint" >Reklamacje</a>
+    <a href="orderCar" >Wynajmij auto</a>
     <a href="listCars">Lista samochodów</a>
     <a href="clientPanel">Wróc do panelu klienta</a>
 </div>
@@ -24,10 +24,10 @@
 <!-- formularz do wypelnienia, zeby wynajac auto) -->
 <table bgcolor="silver" align="center">
 <form>
-    <h1>Formularz wynajęcia auta</h1>
+    <h1>Formularz reklamacji/anulowania wynajmu auta.</h1>
     <!-- Select do wyboru oddzialu z którego wezmiemy auto -->
         <select>
-            <p>Wybierz, z którego oddziału chcesz wypożyczyć.</p>
+            <p>Wybór auta.</p>
             <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
             </select>
         <select>
@@ -35,10 +35,11 @@
             <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
         </select>
     <p> TODO: <br>
-        cena za dzień, początek wynajmu auta, koniec wynajmu auta
-        zapis do tabeli wypozyczenia z id klienta, id samochodu
+        Wybór auta, które chcemy zareklamować/anulować
+        Krótki opis (50 słów) dlaczego reklamujemy (Optional)
+
     </p>
-    <button-submit>Wynajmij auto!</button-submit>
+
 
 </form>
 </table>
