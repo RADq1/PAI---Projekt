@@ -13,7 +13,6 @@
     <a th:href="@{/pracownicy/}" >PRACOWNICY</a>
     <a th:href="@{/statystyki/}">STATYSTYKI</a>
     <a th:href="@{/przychody/}">PRZYCHODY</a>
-    <a th:href="@{/zlecenia/}">ZLECENIA</a>
     <div class="dropdown">
         <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
             <i class="fa fa-caret-down"></i>
@@ -23,6 +22,15 @@
             <a th:href="@{/factory/2}">TORUŃ</a>
             <a th:href="@{/factory/3}">GDAŃSK</a>
             <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">ZLECENIA
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/zleceniaPracownicze}">PRACOWNICY</a>
+            <a th:href="@{/zleceniaAuta}">AUTA</a>
         </div>
     </div>
 </div>

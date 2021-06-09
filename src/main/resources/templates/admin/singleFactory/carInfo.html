@@ -23,6 +23,15 @@
             <a href="gdansk">Gdańsk</a>
         </div>
     </div>
+    <div class="dropdown">
+        <button class="dropbtn">ZLECENIA
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/zleceniaPracownicze}">PRACOWNICY</a>
+            <a th:href="@{/zleceniaAuta}">AUTA</a>
+        </div>
+    </div>
 </div>
 
 <h1>Szczegółowe informacje dotyczące auta <td><span th:text="${car.marka}"/> <td><span th:text="${car.model}"/> </td>  </h1>

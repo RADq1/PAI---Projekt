@@ -2,11 +2,17 @@ package wyp.aut.wypa.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import wyp.aut.wypa.Services.SamochodService;
+import wyp.aut.wypa.entities.Samochod;
 import wyp.aut.wypa.repository.OddzialRepo;
 import wyp.aut.wypa.repository.SamochodRepository;
+
+import java.util.Optional;
 
 @Controller
 public class AdminController {
@@ -15,6 +21,8 @@ public class AdminController {
     SamochodRepository samochodRepository;
     @Autowired
     OddzialRepo oddzialRepo;
+    @Autowired
+    SamochodService samochodService;
 
 
     @GetMapping("/adminPanel")
@@ -65,12 +73,40 @@ public class AdminController {
 
 
     @GetMapping("/factory/{id}/auta")
-    public String carsInFactory(@PathVariable Long id,Model model)
-    {
-       model.addAttribute("samochody",samochodRepository.findAll());
-       model.addAttribute("oddzial",oddzialRepo.findById(id).get());
+    public String carsInFactory(@PathVariable Long id,Model model) {
+        model.addAttribute("samochody", samochodRepository.findAll());
+        model.addAttribute("oddzial", oddzialRepo.findById(id).get());
         return "/admin/singleFactory/carInFactory";
     }
+
+    @GetMapping("/auta/zleceniaAuta/{id}")
+    public String orderCars(@PathVariable Long id, Model model) {
+        model.addAttribute("car", samochodRepository.findById(id).get());
+
+
+        return "/admin/singleFactory/orderCar";
+    }
+
+    @GetMapping("/auta/{id}/edit/")
+    public String editCarView(@PathVariable Long id, Model model,Samochod samochod) {
+
+        samochod = samochodRepository.findById(id).get();
+
+       /* Employee currentEmployee = employeeService.getEmployeeById(id);
+        employeeService.updateEmployee(EmployeeMapper.mapEmployeeDTOToEmployeeObject(employeeWithNewValues, currentEmployee));*/
+        model.addAttribute("car", samochodRepository.findById(id).get());
+        return "/admin/singleFactory/editCar";
+    }
+    @PostMapping("/auta/{id}/edit/")
+    public String updateCar(@PathVariable("id") Long id, Model model, @ModelAttribute("Samochod") Samochod samochod) {
+
+    Optional<Samochod> samochodToUpdate = samochodRepository.findById(id);
+    samochodToUpdate.get().setModel(samochod.getModel());
+        samochodService.updateCar(samochod);
+          //  model.addAttribute("carNew",samochodRepository.findById(samochod.getIdSamochod()));
+        return "redirect:/adminPanel";
+    }
+
 
 
 
