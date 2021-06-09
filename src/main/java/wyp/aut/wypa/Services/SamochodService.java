@@ -11,5 +11,5 @@ public interface SamochodService {
 
     Optional<Samochod> getSamochod(Long samochodId);
 
-    Samochod setSamochod(Samochod samochod);
+    Samochod addCar(Samochod samochod);
 }

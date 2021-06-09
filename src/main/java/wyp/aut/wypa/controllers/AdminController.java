@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.model.IModel;
 import wyp.aut.wypa.Services.SamochodService;
+import wyp.aut.wypa.entities.Klient;
 import wyp.aut.wypa.entities.Oddzial;
 import wyp.aut.wypa.entities.Samochod;
 import wyp.aut.wypa.repository.OddzialRepo;
@@ -108,6 +109,18 @@ public class AdminController {
     }
 
 
+    @PostMapping("/addCar")
+    public String registerCar(Samochod samochod) {
+        samochodService.addCar(samochod);
+        return "redirect:/adminPanel";
+    }
+
+    //strona rejestracji
+    @GetMapping("/addCar")
+    public String registerCar(Model model) {
+        model.addAttribute("user", new Samochod());
+        return "/admin/allFactory/addCar";
+    }
 
 
 }

@@ -26,9 +26,11 @@ public class SamochodServiceImpl implements SamochodService {
       return samochodRepository.findById(samochodId);
    }
 
+    @Override
+    public Samochod addCar(Samochod samochod) {
+        return samochodRepository.save(samochod);
+    }
 
-   @Override
-   public Samochod setSamochod(Samochod samochod) {
-      return samochodRepository.save(samochod);
-   }
+
+
 }
