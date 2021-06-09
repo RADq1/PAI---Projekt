@@ -218,5 +218,12 @@ public class Samochod {
         this.usterkiAuta = usterkiAuta;
     }
 
-
+    @Override
+    public String toString() {
+        return "Samochod{" +
+                "idSamochod=" + idSamochod +
+                ", marka='" + marka + '\'' +
+                ", model='" + cena24 + '\'' +
+                '}';
+    }
 }

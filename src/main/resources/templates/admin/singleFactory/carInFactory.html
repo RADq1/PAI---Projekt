@@ -8,7 +8,7 @@
 <body>
 
 <div class="navbar">
-    <a th:href="@{'/factory/'+ ${oddzial.id}}">HOME</a>
+    <a th:href="@{/adminPanel/}">HOME</a>
     <a th:href="pracownicy" >PRACOWNICY</a>
     <a href="statystyki">STATYSTYKI</a>
     <a href="przychody">PRZYCHODY</a>
@@ -31,19 +31,17 @@
             <th> MODEL </th>
             <th> NUMER REJESTRACYJNY </th>
             <th> EDYTUJ </th>
-            <th> USUŃ </th>
             <th> POKAŻ SZCZEGÓŁY </th>
         </tr>
     </thead>
     <tbody>
         <tr th:if="${samochod.samochod_oddzialu.id == oddzial.id}" th:each="samochod : ${samochody}">
-            <td><span th:text="${samochod.marka}"> Rocznik </span></td>
-            <td><span th:text="${samochod.model}"> Numer Rejestracyjny </span></td>
-            <td><span th:text="${samochod.numerRej}"> Kolor </span></td>
-            <td><a th:href="@{register}">Edytuj</a></td>
-            <td><a th:href="@{register}">Usun</a></td>
+            <td><span th:text="${samochod.marka}"></span></td>
+            <td><span th:text="${samochod.model}"></span></td>
+            <td><span th:text="${samochod.numerRej}"></span></td>
+            <td><a th:href="@{'/auta/' + ${samochod.idSamochod} +'/edit/'}">Edytuj</a></td>
+           <!-- <td><a th:href="@{register}">Usun</a></td>-->
             <td><a th:href="@{'/auta/'+ ${samochod.idSamochod}}">Pokaz szczegóły</a></td>
-            <td><a th:href="@{'/auta/zleceniaAuta/'+ ${samochod.idSamochod}}">Zlecenia Auta</a></td>
         </tr>
     </tbody>
 </table>
