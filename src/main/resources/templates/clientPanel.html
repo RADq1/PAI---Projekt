@@ -8,6 +8,19 @@
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;}
+        .spanik{
+            margin-left: 70%;
+            text-align: right;
+            color: #dddddd;
+            padding-right: 20px;
+        }
+        button{
+            margin-left: 93%;
+            background-color: #3b4148;
+            padding-right: 20px;
+        }
+
+
     </style>
     <meta charset="UTF-8">
     <title>Panel Klienta</title>
@@ -18,8 +31,10 @@
     <a href="../" >Strona główna</a>
     <a href="listCars">Lista samochodów</a>
     <a href="myCars">Twoje samochody</a>
-    <a href="./" >Cofnij</a>
-    <h1> Witaj, <td><span th:text="${test.imie}"> </span></td></h1>
+    <a href="./" >Cofnij</a>'
+    <div class="spanik">Witaj,<span th:text="${test.imie}"></span></div>
+    <button><a href="/logout">Wyloguj się</a></button>
+
    <!-- <div class="dropdown-content">
         <a th:href="@{/factory/1}">BYDGOSZCZ</a>
         <a th:href="@{/factory/2}">TORUŃ</a>
@@ -42,12 +57,6 @@
     </div> -->
 </div>
 
-<p>- wynajęcia wybranego modelu auta *BACKEND DO ZROBIENIA*<br>
-    - anulowanie, reklamacja usługi *BACKEND DO ZROBIENIA*<br>
-    - przejrzenia ofert wypożyczalni dla wybranego oddziału *JEST LISTA SAMOCHODÓW*<br>
-
-    - Widoczny formularz z następującymi polami:<br>
-    Marka ,model, moc, spalanie auta, cena za dzień, początek wynajmu auta, koniec wynajmu auta</p>
 </div>
 </body>
 </html>

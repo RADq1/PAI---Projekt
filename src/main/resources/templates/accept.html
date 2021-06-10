@@ -36,11 +36,12 @@
     <h1>Formularz wynajęcia samochodu: </h1>
     <form th:action="@{'/accept/'+ ${car.idSamochod}}" th:object="${wypozyczenie}" method="post">
         <p>Data wypozyczenia: <input type="date" th:field="*{dataWypożyczenia}"></p>
-        <p>Data oddania: <input type="date" th:field="*{dataOddania}"></p>
+        <p>Data oddania: <input type="date" th:field="*{dataOddania}" ></p>
         <!--<input type="hidden" th:field="*{idSamochodu}" th:value="${car.idSamochod}" >-->
         <input id="idSamochodu" name="wypozyczonySamochod.idSamochod" th:value="${car.idSamochod}" type="hidden"/>
-
+        <input id="idKlient" name="KlientKtoryWypozyczylAuto.idKlient" th:value="${klient.idKlient}" type="hidden"/>
         <p>ID samochodu: <span th:text="${car.idSamochod}"/> </p>
+        <p>ID klienta: <span th:text="${klient.idKlient}"/> </p>
         <input type="submit" value="Wypożycz">
 <!-- th:field="*{date}"-->
     </form>

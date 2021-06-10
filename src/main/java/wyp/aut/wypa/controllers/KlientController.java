@@ -3,6 +3,8 @@ package wyp.aut.wypa.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -58,7 +60,9 @@ public class KlientController {
     {
         model.addAttribute("car",samochodRepository.findById(id).get());
         model.addAttribute("wypozyczenie", wypozyczenie);
-
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Klient klient = (Klient)auth.getPrincipal();
+        model.addAttribute("klient", klient);
         return "accept";
     }
 
@@ -69,38 +73,35 @@ public class KlientController {
         System.out.println(wypozyczenie.getDataWypożyczenia());
         wypozyczanieRepo.save(wypozyczenie);
 
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Klient klient = (Klient)auth.getPrincipal();
+        model.addAttribute("test", klient);
+
+
         return "success";
     }
 
     @GetMapping("/myCars")
     public String complaint(Model model){
         model.addAttribute("samochody",samochodRepository.findAll());
+        model.addAttribute("wypozyczenia",wypozyczanieRepo.findAll());
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Klient klient = (Klient)auth.getPrincipal();
+        model.addAttribute("klient", klient);
+
         return "complaint";
     }
 
     @GetMapping("/accept")
-    public String accept(){
+    public String accept()
+    {
         return "accept";
     }
 
 
 
-    //TEST
-    @GetMapping("/change-username")
-    public String setCookie(HttpServletResponse response) {
-        // create a cookie
-        Cookie cookie = new Cookie("username", "Jovan");
 
-        //add cookie to response
-        response.addCookie(cookie);
 
-        return "hello";
-    }
-
-    @GetMapping("/nick")
-    public String readCookie(@CookieValue(value = "username", defaultValue = "Atta") String username) {
-        System.out.println(username);
-        return "hello";
-    }
 
 }

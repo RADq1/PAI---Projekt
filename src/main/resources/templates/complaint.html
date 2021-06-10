@@ -22,11 +22,7 @@
 </div>
 <br>
 <!-- formularz do wypelnienia, zeby wynajac auto) -->
-<h1>Lista samochodów</h1>
-<h2> TODO: <br>
-    POSORTOWANE SAMOCHODY WZGLĘDEM ID_KLIENT (IDK HOW TO DO THAT)
-    Wybór auta, które chcemy zareklamować/anulować
-    Krótki opis (50 słów) dlaczego reklamujemy (Optional)
+<h1>Twoje wypożyczone samochody: </h1>
 </h2>
 <table bgcolor="silver" align="center">
     <thead>
@@ -35,26 +31,25 @@
         <th> Model </th>
         <th> Rocznik </th>
         <th> Numer Rejestracyjny </th>
-        <th> Pojemność</th>
-        <th> Spalanie(l/100km) </th>
         <th> Kolor </th>
-        <th> Oddział </th>
+
     </tr>
     </thead>
     <tbody>
     <!--<form th:action="@{/accept}" method="post">-->
-    <tr th:each="samochod : ${samochody}">
-        <td th:text="${samochod.marka}"></td>
-        <td th:text="${samochod.model}"></td>
-        <td th:text="${samochod.rocznik}"></td>
-        <td th:text="${samochod.numerRej}"></td>
-        <td th:text="${samochod.pojemnosc}"></td>
-        <td th:text="${samochod.spalanie}"></td>
-        <td th:text="${samochod.kolor}"></td>
-        <td th:text="${samochod.samochod_oddzialu.miejscowosc}"></td>
-        <td><a th:href="@{'/myCars/'+ ${samochod.idSamochod}}"><button>Oddaj samochód</button></a></td>
-        <td><a th:href="@{'/complaint/'+ ${samochod.idSamochod}}"><button>Reklamuj/anuluj</button></a></td>
-        <!--<td><input type="submit" value="Wypożycz"></td>-->
+    <tr th:if= "${klient.idKlient==wypozyczen.KlientKtoryWypozyczylAuto.idKlient}" th:each="wypozyczen : ${wypozyczenia}">
+        <td th:text="${wypozyczen.wypozyczonySamochod.model}"></td>
+        <td th:text="${wypozyczen.wypozyczonySamochod.marka}"></td>
+        <td th:text="${wypozyczen.wypozyczonySamochod.rocznik}"></td>
+        <td th:text="${wypozyczen.wypozyczonySamochod.numerRej}"></td>
+        <td th:text="${wypozyczen.wypozyczonySamochod.kolor}"></td>
+        <td><a th:href="@{'/myCars/'+ ${wypozyczen.wypozyczonySamochod.idSamochod}}"><button>Oddaj samochód</button></a></td>
+        <td><a th:href="@{'/complaint/'+ ${wypozyczen.wypozyczonySamochod.idSamochod}}"><button>Reklamuj/anuluj</button></a></td>
+
+
+        <!--<td><a th:href="@{'/myCars/'+ ${samochod.idSamochod}}"><button>Oddaj samochód</button></a></td>
+        <td><a th:href="@{'/complaint/'+ ${samochod.idSamochod}}"><button>Reklamuj/anuluj</button></a></td>-->
+
     </tr>
     <!--</form>-->
     </tbody>
