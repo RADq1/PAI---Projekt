@@ -13,6 +13,8 @@ import wyp.aut.wypa.repository.OddzialRepo;
 import wyp.aut.wypa.repository.SamochodRepository;
 import wyp.aut.wypa.repository.WypozyczanieRepo;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
 @Controller
@@ -82,5 +84,23 @@ public class KlientController {
     }
 
 
+
+    //TEST
+    @GetMapping("/change-username")
+    public String setCookie(HttpServletResponse response) {
+        // create a cookie
+        Cookie cookie = new Cookie("username", "Jovan");
+
+        //add cookie to response
+        response.addCookie(cookie);
+
+        return "hello";
+    }
+
+    @GetMapping("/nick")
+    public String readCookie(@CookieValue(value = "username", defaultValue = "Atta") String username) {
+        System.out.println(username);
+        return "hello";
+    }
 
 }
