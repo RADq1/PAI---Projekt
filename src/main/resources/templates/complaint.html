@@ -16,29 +16,51 @@
 <body>
 <div class="navbar">
     <a href="../" >Strona główna</a>
-    <a href="orderCar" >Wynajmij auto</a>
     <a href="listCars">Lista samochodów</a>
     <a href="clientPanel">Wróc do panelu klienta</a>
+    <a href="./" >Cofnij</a>
 </div>
 <br>
 <!-- formularz do wypelnienia, zeby wynajac auto) -->
+<h1>Lista samochodów</h1>
+<h2> TODO: <br>
+    POSORTOWANE SAMOCHODY WZGLĘDEM ID_KLIENT (IDK HOW TO DO THAT)
+    Wybór auta, które chcemy zareklamować/anulować
+    Krótki opis (50 słów) dlaczego reklamujemy (Optional)
+</h2>
 <table bgcolor="silver" align="center">
-<form>
-    <h1>Formularz reklamacji/anulowania wynajmu auta.</h1>
-    <!-- Select do wyboru oddzialu z którego wezmiemy auto -->
-        <select>
-            <p>Wybór auta.</p>
-            <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
-            </select>
-        <select>
-            <p>Wybierz samochód po numerze rejestracyjnym.</p>
-            <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
-        </select>
-    <p> TODO: <br>
-        Wybór auta, które chcemy zareklamować/anulować
-        Krótki opis (50 słów) dlaczego reklamujemy (Optional)
+    <thead>
+    <tr>
+        <th> Marka </th>
+        <th> Model </th>
+        <th> Rocznik </th>
+        <th> Numer Rejestracyjny </th>
+        <th> Pojemność</th>
+        <th> Spalanie(l/100km) </th>
+        <th> Kolor </th>
+        <th> Oddział </th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--<form th:action="@{/accept}" method="post">-->
+    <tr th:each="samochod : ${samochody}">
+        <td th:text="${samochod.marka}"></td>
+        <td th:text="${samochod.model}"></td>
+        <td th:text="${samochod.rocznik}"></td>
+        <td th:text="${samochod.numerRej}"></td>
+        <td th:text="${samochod.pojemnosc}"></td>
+        <td th:text="${samochod.spalanie}"></td>
+        <td th:text="${samochod.kolor}"></td>
+        <td th:text="${samochod.samochod_oddzialu.miejscowosc}"></td>
+        <td><a th:href="@{'/myCars/'+ ${samochod.idSamochod}}"><button>Oddaj samochód</button></a></td>
+        <td><a th:href="@{'/complaint/'+ ${samochod.idSamochod}}"><button>Reklamuj/anuluj</button></a></td>
+        <!--<td><input type="submit" value="Wypożycz"></td>-->
+    </tr>
+    <!--</form>-->
+    </tbody>
+</table>
 
-    </p>
+
 
 
 </form>

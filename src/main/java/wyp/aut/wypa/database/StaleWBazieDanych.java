@@ -21,7 +21,7 @@ public class StaleWBazieDanych {
 
 
 
-
+/*
     @Bean
     CommandLineRunner dodanieAut(SamochodRepository samochodRepository, OddzialRepo oddzialRepo, PracownikRepo pracownikRepo)
     {
@@ -90,6 +90,6 @@ public class StaleWBazieDanych {
 
         };
     }
-
+*/
 
 }

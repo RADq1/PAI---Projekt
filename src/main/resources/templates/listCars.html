@@ -17,8 +17,7 @@
 <body>
 <div class="navbar">
     <a href="../" >Strona główna</a>
-    <a href="orderCar" >Wynajmij auto</a>
-    <a href="complaint" >Reklamacje</a>
+    <a href="myCars">Twoje samochody</a>
     <a href="clientPanel">Wróc do panelu klienta</a>
 </div>
 
@@ -39,7 +38,6 @@
     <tbody>
     <!--<form th:action="@{/accept}" method="post">-->
     <tr th:each="samochod : ${samochody}">
-
         <td th:text="${samochod.marka}"></td>
         <td th:text="${samochod.model}"></td>
         <td th:text="${samochod.rocznik}"></td>
@@ -48,7 +46,7 @@
         <td th:text="${samochod.spalanie}"></td>
         <td th:text="${samochod.kolor}"></td>
         <td th:text="${samochod.samochod_oddzialu.miejscowosc}"></td>
-        <td><a th:href="@{'/listCars/'+ ${samochod.idSamochod}}">Wypożycz</a></td>
+        <td><a th:href="@{'/listCars/'+ ${samochod.idSamochod}}"><button>Wypożycz</button></a></td>
         <!--<td><input type="submit" value="Wypożycz"></td>-->
     </tr>
     <!--</form>-->

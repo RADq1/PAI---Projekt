@@ -84,11 +84,4 @@ public class MainController {
         return "home";
     }
 
-
-    @EventListener(ApplicationReadyEvent.class)
-    public void whenStartApplication(){
-        //public Klient(String imie, String nazwisko, String nrTel, String PESEL, String username, String password, String role, String email)
-        //klientRepo.save(new Klient("Radosław", "Gackowski", "661614088", "98110704523", "radgac000", "blablabla", "ROLE_USER", "1998radq@gmail.com", true));
-    }
-
 }

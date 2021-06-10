@@ -8,10 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import wyp.aut.wypa.Services.KlientService;
-import wyp.aut.wypa.entities.Klient;
-import wyp.aut.wypa.entities.Oddzial;
-import wyp.aut.wypa.entities.Samochod;
-import wyp.aut.wypa.entities.Wypozyczenie;
+import wyp.aut.wypa.entities.*;
 import wyp.aut.wypa.repository.OddzialRepo;
 import wyp.aut.wypa.repository.SamochodRepository;
 import wyp.aut.wypa.repository.WypozyczanieRepo;
@@ -37,13 +34,13 @@ public class KlientController {
         oddzialRepo.save(new Oddzial("Bydgoszcz"));
         oddzialRepo.save(new Oddzial("Toruń"));
         oddzialRepo.save(new Oddzial("Gdańsk"));
-    } */
+    }
 
     @GetMapping("/orderCar")
     public String orderCar(Model model){
         model.addAttribute("oddzial",oddzialRepo.findAll());
         return "orderCar";
-    }
+    }*/
 
     @GetMapping("/listCars")
     public String listCars(Model model, Samochod samochod){
@@ -53,22 +50,29 @@ public class KlientController {
         System.out.println(temp); */
         return "listCars";
     }
+
     @GetMapping("/listCars/{id}")
-    public String detailedInformation(Model model, @PathVariable Long id)
+    public String detailedInformation(Model model, @PathVariable Long id, Wypozyczenie wypozyczenie)
     {
         model.addAttribute("car",samochodRepository.findById(id).get());
+        model.addAttribute("wypozyczenie", wypozyczenie);
+
         return "accept";
     }
-    /*@PostMapping("/listCars")
-    public String blabla(Samochod samochod){
 
-        //System.out.println(temp);
-        //model.addAttribute("auto", samochod);
-        return "accept";
-    } */
+    @PostMapping("/accept/{id}")
+    public String wypozycz(Model model, Wypozyczenie wypozyczenie){
+        model.addAttribute("wypozyczenie", wypozyczenie);
+        System.out.println(wypozyczenie.getDataOddania());
+        System.out.println(wypozyczenie.getDataWypożyczenia());
+        wypozyczanieRepo.save(wypozyczenie);
 
-    @GetMapping("/complaint")
-    public String complaint(){
+        return "success";
+    }
+
+    @GetMapping("/myCars")
+    public String complaint(Model model){
+        model.addAttribute("samochody",samochodRepository.findAll());
         return "complaint";
     }
 
