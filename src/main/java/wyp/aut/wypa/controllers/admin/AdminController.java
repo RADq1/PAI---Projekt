@@ -1,4 +1,4 @@
-package wyp.aut.wypa.controllers;
+package wyp.aut.wypa.controllers.admin;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,13 +54,6 @@ public class AdminController {
         return "/admin/singleFactory/factoryInfo";
     }
 
-    @GetMapping("/pracownicy")
-    @ResponseBody
-    public String allEmployee()
-    {
-        return "pracownicy";
-    }
-
     @GetMapping("/statystyki")
     @ResponseBody
     public String statistick()
@@ -86,8 +79,6 @@ public class AdminController {
     @GetMapping("/auta/zleceniaAuta/{id}")
     public String orderCars(@PathVariable Long id, Model model) {
         model.addAttribute("car", samochodRepository.findById(id).get());
-
-
         return "/admin/singleFactory/orderCar";
     }
 
@@ -95,7 +86,6 @@ public class AdminController {
     public String editCarView(@PathVariable Long id, Model model) {
            model.addAttribute("car", samochodRepository.findById(id).get());
            model.addAttribute("oddzialy",oddzialRepo.findAll());
-
            return "/admin/singleFactory/editCar";
     }
     @PostMapping("/auta/{id}/edit/")
@@ -107,14 +97,11 @@ public class AdminController {
         samochodRepository.save(samochodToUpdate);
         return "redirect:/adminPanel";
     }
-
-
     @PostMapping("/addCar")
     public String registerCar(Samochod samochod) {
         samochodService.addCar(samochod);
         return "redirect:/adminPanel";
     }
-
     //strona rejestracji
     @GetMapping("/addCar")
     public String registerCar(Model model) {

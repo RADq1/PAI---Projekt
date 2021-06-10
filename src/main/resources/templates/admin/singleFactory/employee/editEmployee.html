@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Panel Administratora</title>
+    <title>Wszystkie Auta</title>
     <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
 </head>
 <body>
 
-
 <div class="navbar">
+    <a th:href="@{/adminPanel/}">HOME</a>
     <a th:href="@{/auta/}">AUTA</a>
-    <a th:href="@{/allEmployee/}" >PRACOWNICY</a>
+    <a th:href="@{/allEmployee/}">PRACOWNICY</a>
     <a th:href="@{/statystyki/}">STATYSTYKI</a>
     <a th:href="@{/przychody/}">PRZYCHODY</a>
     <div class="dropdown">
@@ -25,8 +25,17 @@
         </div>
     </div>
 </div>
-<h1>Witaj Administratorze </h1>
-<h2> Z tego miejsca masz podgląd  na wszystkie funkcjonalności</h2>
-<td><a th:href="@{/addCar/}">Dodaj auto</a></td>
+<h1>Edycja Pracownika <td><span th:text="${employee.imie}"/> <td><span th:text="${employee.nazwisko}"/> </td> </h1>
+
+<form th:action="@{'/allEmployee/'+${employee.idPracownik}+'/edit/'}" method="post"   th:object="${employee}">
+    <table>
+        <tr>
+            <p>Nową cenę za dzień wypożyczenia auta</p>
+            <input type="number" th:name="Pensja"/><br>
+        </tr>
+    </table>
+    <input type="submit" value="Save"/>
+</form>
+
 </body>
 </html>
