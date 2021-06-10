@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <style>
+        body{
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;}
+    </style>
     <meta charset="UTF-8">
     <title>Panel Klienta</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
 </head>
 <body>
-<div>Witaj, <div th:text="${imie}"></div>
-<p>Tutaj będą wszystkie opcje klienta</p>
-<p>- wynajęcia wybranego modelu auta <br>
-    - anulowanie, reklamacja usługi<br>
-    - przejrzenia ofert wypożyczalni dla wybranego oddziału<br>
-    - wyszukanie oddziałów dostępnych w mieście<br>
-    Klient będzie z poziomu strony wybierać funkcjonalność, a następnie zgodnie z formularzem ją będzie wypełniał aby zadział się określony efekt:
-    Wynajęcie auta:<br>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="orderCar" >Wynajmij auto</a>
+    <a href="complaint" >Reklamacje</a>
+    <a href="listCars">Lista samochodów</a>
+   <!-- <div class="dropdown-content">
+        <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+        <a th:href="@{/factory/2}">TORUŃ</a>
+        <a th:href="@{/factory/3}">GDAŃSK</a>
+    </div> -->
+<!--    <a th:href="@{'/factory/'+ ">HOME</a>
+    <a th:href="#" >#</a>
+    <a href="statystyki">STATYSTYKI</a>
+    <a href="przychody">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div> -->
+</div>
+
+<p>- wynajęcia wybranego modelu auta *BACKEND DO ZROBIENIA*<br>
+    - anulowanie, reklamacja usługi *BACKEND DO ZROBIENIA*<br>
+    - przejrzenia ofert wypożyczalni dla wybranego oddziału *JEST LISTA SAMOCHODÓW*<br>
+
     - Widoczny formularz z następującymi polami:<br>
     Marka ,model, moc, spalanie auta, cena za dzień, początek wynajmu auta, koniec wynajmu auta</p>
-
+</div>
 </body>
 </html>

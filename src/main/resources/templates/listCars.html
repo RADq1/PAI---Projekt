@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body{
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            text-align-all: center;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Panel Klienta</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="orderCar" >Wynajmij auto</a>
+    <a href="complaint" >Reklamacje</a>
+    <a href="clientPanel">Wróc do panelu klienta</a>
+</div>
+
+<h1>Lista samochodów</h1>
+<table bgcolor="silver" align="center">
+    <thead>
+    <tr>
+        <th> Marka </th>
+        <th> Model </th>
+        <th> Rocznik </th>
+        <th> Numer Rejestracyjny </th>
+        <th> Pojemność silnika </th>
+        <th> Spalanie: </th>
+        <th> Kolor </th>
+        <th> Oddział </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="samochod : ${samochody}">
+        <td><span th:text="${samochod.marka}"> Marka </span></td>
+        <td><span th:text="${samochod.model}"> Model </span></td>
+        <td><span th:text="${samochod.rocznik}"> Rocznik </span></td>
+        <td><span th:text="${samochod.numerRej}"> Numer Rejestracyjny </span></td>
+        <td><span th:text="${samochod.pojemnosc}"> Pojemność </span></td>
+        <td><span th:text="${samochod.spalanie}"> Spalanie(l/100km)  </span></td>
+        <td><span th:text="${samochod.kolor}"> Kolor </span></td>
+        <td><span th:text="${samochod.samochod_oddzialu.miejscowosc}"> Oddział </span></td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+</div>
+</body>
+</html>

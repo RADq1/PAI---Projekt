@@ -20,26 +20,26 @@ public class AdminController {
     @GetMapping("/adminPanel")
     public String panelAdmin()
     {
-        return "adminPanel";
+        return "/admin/allFactory/adminPanel";
     }
 
     @GetMapping("/auta")
     public String allCars(Model model)
     {
         model.addAttribute("samochody",samochodRepository.findAll());
-        return "AllCars";
+        return "/admin/allFactory/AllCars";
     }
     @GetMapping("/auta/{id}")
     public String detailedInformation(Model model, @PathVariable Long id)
     {
         model.addAttribute("car",samochodRepository.findById(id).get());
-        return "carInfo";
+        return "/admin/singleFactory/carInfo";
     }
     @GetMapping("/factory/{id}")
     public String detailedFactoryInformation(Model model,@PathVariable Long id)
     {
         model.addAttribute("oddzial", oddzialRepo.findById(id).get());
-        return "factoryInfo";
+        return "/admin/singleFactory/factoryInfo";
     }
 
     @GetMapping("/pracownicy")
@@ -69,7 +69,7 @@ public class AdminController {
     {
        model.addAttribute("samochody",samochodRepository.findAll());
        model.addAttribute("oddzial",oddzialRepo.findById(id).get());
-        return "carInFactory";
+        return "/admin/singleFactory/carInFactory";
     }
 
 

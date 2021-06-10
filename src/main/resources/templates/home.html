@@ -3,29 +3,55 @@
 <head>
     <style>
         body{
-            background-image: url("car.jpg")}
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;}
     </style>
     <meta charset="UTF-8">
     <title>Strona główna</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+   <!-- <img src="../image/car.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
+    <img src="../image/car.jpg" alt="HTML5 Icon" width="128" height="128"> -->
+
 </head>
 <body >
-<center>
-<h1>Wypożyczalnia samochodów</h1>
+<link  th:href="@{/css/slider.css}" rel="stylesheet"/>
+<div id="slide">
+    <figure>
+        <img src="../image/renault.jpg" alt>
+        <img src="../image/ferrari.jpg" alt>
+        <img src="../image/golf.jpg" alt>
+        <img src="../image/bmw.jpg" alt>
+        <img src="../image/renault.jpg" alt>
+        <img src="../image/ferrari.jpg" alt>
+        <img src="../image/golf.jpg" alt>
+        <img src="../image/bmw.jpg" alt>
+        <img src="../image/renault.jpg" alt>
+        <img src="../image/ferrari.jpg" alt>
+        <img src="../image/golf.jpg" alt>
+        <img src="../image/bmw.jpg" alt>
+        <img src="../image/renault.jpg" alt>
+        <img src="../image/ferrari.jpg" alt>
+        <img src="../image/golf.jpg" alt>
+        <img src="../image/bmw.jpg" alt>
+    </figure>
+</div>
+<div style="background-color:black;opacity:0.5;">
+    <h1>Wypożyczalnia samochodów</h1>
+    <hr>
+</div>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="clientPanel" >Zaloguj się</a>
+    <a href="register" >Zarejestruj się</a>
+    <a href="adminPanel">Panel Admin</a>
+</div>
+
 <div>Witaj w naszej wypożyczalni samochodów!</div></div>
+<h5> TODO: Wejscie do panel admina powinno byc zablokowane jakims haslem, albo rolą ROLE_ADMIN czy cos.</h5>
 
-    <!--<div th:text="${imie}"
-    <img th:src="@{/image/car.jpg}"/>
-    <img src="/static/image/car.jpg" /> -->
-    <div th:style="'background:url(' + @{/image/car.jpg} + ');'"></div>
-    <br>
-    <p>Nie posiadasz jeszcze konta? Nie przejmuj się! W bardzo prosty sposób je założysz, a potrzebujesz je aby uzyskać dostęp do panelu wypożyczeń</p><br>
-    <button><a href="register">Stwórz konto</a></button><br>
-    <p>Jesteś już naszym klientem? Zaloguj się używając poniższego przycisku!</p><br>
-    <button><a href="clientPanel">Zaloguj się</a></button><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <button><a href="panelAdmin">Panel admin</a></button><br>
-
-
-</center>
+</div>
 </body>
 </html>

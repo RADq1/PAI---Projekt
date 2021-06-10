@@ -1,3 +1,7 @@
+h1 {
+   font-family: sans-serif;
+
+}
 h2 {
     font-family: sans-serif;
     font-size: 1.5em;
@@ -85,31 +89,7 @@ p {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-body
+.body
 {
-    background-image: url("/image/cars.png");
+    background-image: url("/image/car.jpg");
 }
-
-table{
-
-	    width: 100%;
-	    border-collapse: collapse;
-	    border-spacing: 0;
-	    margin-bottom: 1%;
-	}
-
-
-table td,th a:hover, .dropdown:hover .dropbtn{
-	    font-size: 14px;
-	    border-top: 1px solid #ddd;
-	    padding: 5px 12px;
-	    text-align: center;
-	    vertical-align: top;
-	    background-color: #f3f3f3;
-
-
-	}
-/*table tbody tr:nth-child(even) td {
-	    background-color: #f3f3f3;
-	}
-*/

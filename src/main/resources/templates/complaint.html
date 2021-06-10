@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body{
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Reklamacja</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="orderCar" >Wynajmij auto</a>
+    <a href="listCars">Lista samochodów</a>
+    <a href="clientPanel">Wróc do panelu klienta</a>
+</div>
+<br>
+<!-- formularz do wypelnienia, zeby wynajac auto) -->
+<table bgcolor="silver" align="center">
+<form>
+    <h1>Formularz reklamacji/anulowania wynajmu auta.</h1>
+    <!-- Select do wyboru oddzialu z którego wezmiemy auto -->
+        <select>
+            <p>Wybór auta.</p>
+            <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
+            </select>
+        <select>
+            <p>Wybierz samochód po numerze rejestracyjnym.</p>
+            <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
+        </select>
+    <p> TODO: <br>
+        Wybór auta, które chcemy zareklamować/anulować
+        Krótki opis (50 słów) dlaczego reklamujemy (Optional)
+
+    </p>
+
+
+</form>
+</table>
+</body>
+</html>
