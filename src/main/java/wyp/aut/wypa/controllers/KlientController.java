@@ -6,15 +6,17 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import wyp.aut.wypa.Services.KlientService;
 import wyp.aut.wypa.entities.Klient;
 import wyp.aut.wypa.entities.Oddzial;
+import wyp.aut.wypa.entities.Samochod;
+import wyp.aut.wypa.entities.Wypozyczenie;
 import wyp.aut.wypa.repository.OddzialRepo;
 import wyp.aut.wypa.repository.SamochodRepository;
 import wyp.aut.wypa.repository.WypozyczanieRepo;
+
+import java.util.Optional;
 
 @Controller
 public class KlientController {
@@ -30,12 +32,12 @@ public class KlientController {
         this.oddzialRepo = oddzialRepo;
         this.samochodRepository = samochodRepository;
     }
-    @EventListener(ApplicationReadyEvent.class)
+  /*  @EventListener(ApplicationReadyEvent.class)
     public void addOddzial(){
         oddzialRepo.save(new Oddzial("Bydgoszcz"));
         oddzialRepo.save(new Oddzial("Toruń"));
         oddzialRepo.save(new Oddzial("Gdańsk"));
-    }
+    } */
 
     @GetMapping("/orderCar")
     public String orderCar(Model model){
@@ -44,16 +46,36 @@ public class KlientController {
     }
 
     @GetMapping("/listCars")
-    public String listCars(Model model){
+    public String listCars(Model model, Samochod samochod){
         model.addAttribute("samochody",samochodRepository.findAll());
+        /*Optional<Samochod> temp = samochodRepository.findById(samochod.getIdSamochod());
+        model.addAttribute("auto", samochod);
+        System.out.println(temp); */
         return "listCars";
     }
+    @GetMapping("/listCars/{id}")
+    public String detailedInformation(Model model, @PathVariable Long id)
+    {
+        model.addAttribute("car",samochodRepository.findById(id).get());
+        return "accept";
+    }
+    /*@PostMapping("/listCars")
+    public String blabla(Samochod samochod){
+
+        //System.out.println(temp);
+        //model.addAttribute("auto", samochod);
+        return "accept";
+    } */
 
     @GetMapping("/complaint")
     public String complaint(){
         return "complaint";
     }
 
+    @GetMapping("/accept")
+    public String accept(){
+        return "accept";
+    }
 
 
 

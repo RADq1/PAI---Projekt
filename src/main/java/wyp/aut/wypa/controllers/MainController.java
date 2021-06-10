@@ -83,6 +83,8 @@ public class MainController {
         klientRepo.save(appUser);
         return "home";
     }
+
+
     @EventListener(ApplicationReadyEvent.class)
     public void whenStartApplication(){
         //public Klient(String imie, String nazwisko, String nrTel, String PESEL, String username, String password, String role, String email)

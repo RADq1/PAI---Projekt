@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body{
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            text-align-all: center;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Wynajmij auto</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="clientPanel">Wróc do panelu klienta</a>
+</div>
+
+<p> TODO INFORMACJE O WYBRANYM POJEŹDZIE</p>
+<h1>Informacje dotyczące wynajmu samochodu <td><span th:text="${car.marka}"/> <td><span th:text="${car.model}"/> </td>  </h1>
+
+</div>
+</body>
+</html>
