@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administratora</title>
+    <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+
+
+<div class="navbar">
+    <a th:href="@{/auta/}">AUTA</a>
+    <a th:href="@{/allEmployee/}" >PRACOWNICY</a>
+    <a th:href="@{/statystyki/}">STATYSTYKI</a>
+    <a th:href="@{/przychody/}">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div>
+</div>
+<h1>Witaj Administratorze </h1>
+<h2> Z tego miejsca masz podgląd  na wszystkie funkcjonalności</h2>
+<td><a th:href="@{/addCar/}">Dodaj auto</a></td>
+</body>
+</html>

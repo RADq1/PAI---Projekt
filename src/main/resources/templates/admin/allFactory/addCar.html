@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administratora</title>
+    <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+    <a th:href="@{/auta/}">AUTA</a>
+    <a th:href="@{/pracownicy/}" >PRACOWNICY</a>
+    <a th:href="@{/statystyki/}">STATYSTYKI</a>
+    <a th:href="@{/przychody/}">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div>
+</div>
+
+<form th:action="@{/addCar}" method="post">
+
+   <p>(*)Podaj marke samochodu:</p>
+    <input type="text" th:name="marka"/><br>
+
+    <p>(*)Podaj model samochodu:</p>
+    <input type="text" th:name="model"/><br>
+
+    <p>(*)Podaj rocznik samochodu:</p>
+    <input type="number" th:name="rocznik"/><br>
+
+    <p>(*)Podaj numer rejestracyjny samochodu:</p>
+    <input type="text" th:name="numerRej"/><br>
+
+
+    <p>(*)Podaj kolor samochodu:</p>
+    <select name="color">
+        <option th:each="colorOpt : ${T(wyp.aut.wypa.Enums.Kolor).values()}"
+                th:value="${colorOpt}" th:text="${colorOpt}"></option>
+    </select>
+
+    <p>(*)Podaj pojemność samochodu:</p>
+    <input type="number" th:name="pojemnosc"/><br>
+
+    <p>(*)Podaj przebieg samochodu:</p>
+    <input type="number" th:name="przebieg"/><br>
+
+    <p>(*)Podaj spalanie samochodu:</p>
+    <input type="number" th:name="spalanie"/><br>
+
+    <p>(*)Podaj cenę za dzień wynajmu samochodu:</p>
+    <input type="number" th:name="cena24"/><br>
+
+    <p>(*)Podaj marke samochodu:</p>
+    <input type="text" th:name="marka"/><br>
+
+    <p>(*)Podaj datę końca terminu przeglądu samochodu:</p>
+    <input type="date" th:name="terminPrzegladu"/><br>
+
+    <p>(*)Podaj date końca OC samochodu:</p>
+    <input type="date" th:name="OC"/><br>
+
+
+    <h5> Wszystkie pola z * są wymagane do rejestracji</h5>
+    <input type="submit"/>
+    </center>
+</form>
+
+
+
+</body>
+</html>

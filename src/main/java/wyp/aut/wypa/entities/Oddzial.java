@@ -65,4 +65,17 @@ public class Oddzial {
     public void setId(Long id) {
         this.id = id;
     }
+    public void addCar(Samochod samochod) {
+        samochody.add(samochod);
+    }
+
+    @Override
+    public String toString() {
+        return "Oddzial{" +
+                "id=" + id +
+                ", miejscowosc='" + miejscowosc + '\'' +
+                ", samochody=" + samochody +
+                ", pracownicy=" + pracownicy +
+                '}';
+    }
 }

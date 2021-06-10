@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Wszyscy Pracownicy</title>
+    <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="navbar">
+    <a th:href="@{/adminPanel/}">HOME</a>
+    <a th:href="@{/auta/}">AUTA</a>
+    <a th:href="@{/allEmployee/}">PRACOWNICY</a>
+    <a th:href="@{/statystyki/}">STATYSTYKI</a>
+    <a th:href="@{/przychody/}">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th> Imie  </th>
+        <th> Nazwisko </th>
+        <th> Pensja za miesiąc </th>
+        <th> Stanowisko </th>
+        <th> Oddział </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${employees.empty}">
+        <td colspan="2"> Brak Aut </td>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td><span th:text="${employee.imie}"> </span></td>
+        <td><span th:text="${employee.nazwisko}"> </span></td>
+        <td><span th:text="${employee.pensja}"> </span></td>
+        <td><span th:text="${employee.stanowisko}"> </span></td>
+        <td><span th:text="${employee.pracownik_oddzialu.miejscowosc}"> </span></td>
+        <td><a th:href="@{'/allEmployee/' + ${employee.idPracownik} +'/edit/'}">Zmien Wynagrodzenie</a></td>
+        <td><a th:href="@{/deleteEmployee/}">Zwolnij</a></td>
+
+      <!--  <td><span th:text="${samochod.model}"> </span></td>
+        <td><span th:text="${samochod.rocznik}"> </span></td>
+        <td><span th:text="${samochod.numerRej}"> Numer Rejestracyjny </span></td>
+        <td><span th:text="${samochod.samochod_oddzialu.miejscowosc}"> Oddział </span></td>
+        <td><a th:href="@{'/auta/' + ${samochod.idSamochod} +'/edit/'}">Edytuj</a></td>
+        <td><a th:href="@{register}">Usun</a></td>
+        <td><a th:href="@{'/auta/'+ ${samochod.idSamochod}}">Pokaz szczegóły</a></td>
+        <td><a th:href="@{'/auta/zleceniaAuta/'+ ${samochod.idSamochod}}">Zlecenia Auta</a></td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
