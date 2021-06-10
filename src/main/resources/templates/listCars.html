@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body{
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            text-align-all: center;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Panel Klienta</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="myCars">Twoje samochody</a>
+    <a href="clientPanel">Wróc do panelu klienta</a>
+</div>
+
+<h1>Lista samochodów</h1>
+<table bgcolor="silver" align="center">
+    <thead>
+    <tr>
+        <th> Marka </th>
+        <th> Model </th>
+        <th> Rocznik </th>
+        <th> Numer Rejestracyjny </th>
+        <th> Pojemność</th>
+        <th> Spalanie(l/100km) </th>
+        <th> Kolor </th>
+        <th> Oddział </th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--<form th:action="@{/accept}" method="post">-->
+    <tr th:each="samochod : ${samochody}">
+        <td th:text="${samochod.marka}"></td>
+        <td th:text="${samochod.model}"></td>
+        <td th:text="${samochod.rocznik}"></td>
+        <td th:text="${samochod.numerRej}"></td>
+        <td th:text="${samochod.pojemnosc}"></td>
+        <td th:text="${samochod.spalanie}"></td>
+        <td th:text="${samochod.kolor}"></td>
+        <td th:text="${samochod.samochod_oddzialu.miejscowosc}"></td>
+        <td><a th:href="@{'/listCars/'+ ${samochod.idSamochod}}"><button>Wypożycz</button></a></td>
+        <!--<td><input type="submit" value="Wypożycz"></td>-->
+    </tr>
+    <!--</form>-->
+    </tbody>
+</table>
+
+
+</div>
+</body>
+</html>

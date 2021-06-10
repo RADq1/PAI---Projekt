@@ -3,15 +3,31 @@
 <head>
     <style>
         body{
-            background-image: url("car.jpg")}
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;}
     </style>
     <meta charset="UTF-8">
     <title>Strona główna</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+   <!-- <img src="../image/car.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
+    <img src="../image/car.jpg" alt="HTML5 Icon" width="128" height="128"> -->
+
 </head>
 <body >
-<center>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="clientPanel" >Zaloguj się/Przejdź do panelu klienta</a>
+    <a href="register" >Stwórz konto</a>
+    <a href="adminPanel">Panel Admin</a>
+
+</div>
 <h1>Wypożyczalnia samochodów</h1>
 <div>Witaj w naszej wypożyczalni samochodów!</div></div>
+<h5> TODO: Wejscie do panel admina powinno byc zablokowane jakims haslem, albo rolą ROLE_ADMIN czy cos.</h5>
+
 
     <!--<div th:text="${imie}"
     <img th:src="@{/image/car.jpg}"/>
@@ -24,8 +40,6 @@
     <button><a href="clientPanel">Zaloguj się</a></button><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br>
     <button><a href="/adminPanel">Panel admin</a></button><br>
-
-
 </center>
 </body>
 </html>

@@ -34,7 +34,6 @@ public class KlientServiceImpl implements KlientService {
         klient.setRole("ROLE_USER");
         klientRepo.save(klient); // zapisanie klienta
         sendToken(klient);
-
     }
     @Override
     public Boolean checkLogin(String login){

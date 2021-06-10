@@ -1,6 +1,10 @@
 package wyp.aut.wypa.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import wyp.aut.wypa.Services.KlientService;
 import wyp.aut.wypa.entities.Klient;
+import wyp.aut.wypa.entities.Oddzial;
 import wyp.aut.wypa.entities.Token;
 import wyp.aut.wypa.repository.KlientRepo;
 import wyp.aut.wypa.repository.TokenRepo;
@@ -54,16 +59,12 @@ public class MainController {
         return "register";
     }
 
-    //panel klienta
-    @GetMapping("/clientPanel1")
-    @ResponseBody
-    public String clientPanel1() {
-        return "clientPanel";
-    }
-
 
     @GetMapping("/clientPanel")
-    public String clientPanel() {
+    public String clientPanel(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Klient klient = (Klient)auth.getPrincipal();
+        model.addAttribute("test", klient);
         return "clientPanel";
     }
 
