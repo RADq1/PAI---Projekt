@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body{
+            background-image: url("../image/car.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Formularz wynajęcia auta</title>
+    <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+    <a href="../" >Strona główna</a>
+    <a href="complaint" >Reklamacje</a>
+    <a href="listCars">Lista samochodów</a>
+    <a href="clientPanel">Wróc do panelu klienta</a>
+</div>
+<br>
+<!-- formularz do wypelnienia, zeby wynajac auto) -->
+<table bgcolor="silver" align="center">
+<form>
+    <h1>Formularz wynajęcia auta</h1>
+    <!-- Select do wyboru oddzialu z którego wezmiemy auto -->
+        <select>
+            <p>Wybierz, z którego oddziału chcesz wypożyczyć.</p>
+            <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
+            </select>
+        <select>
+            <p>Wybierz samochód po numerze rejestracyjnym.</p>
+            <option th:each = "miejscowosc : ${oddzial}" th:text = "${miejscowosc.miejscowosc}"></option>
+        </select>
+    <p> TODO: <br>
+        cena za dzień, początek wynajmu auta, koniec wynajmu auta
+        zapis do tabeli wypozyczenia z id klienta, id samochodu
+    </p>
+    <button-submit>Wynajmij auto!</button-submit>
+
+</form>
+</table>
+</body>
+</html>

@@ -63,6 +63,17 @@ public class Klient implements UserDetails {
         this.role = role;
         this.email = email;
     }
+    public Klient(String imie, String nazwisko, String nrTel, String PESEL, String username, String password, String role, String email, boolean isEnabled) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.nrTel = nrTel;
+        this.PESEL = PESEL;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.email = email;
+        this.isEnabled = isEnabled;
+    }
 
     public Klient() {
     }
