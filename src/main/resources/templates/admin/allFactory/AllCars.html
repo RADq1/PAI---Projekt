@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:background-color="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Wszystkie Auta</title>
@@ -8,11 +8,11 @@
 <body>
 
 <div class="navbar">
-    <a th:href="adminPanel">START</a>
-    <a th:href="auta">AUTA</a>
-    <a th:href="pracownicy" >PRACOWNICY</a>
-    <a href="statystyki">STATYSTYKI</a>
-    <a href="przychody">PRZYCHODY</a>
+    <a th:href="@{/adminPanel/}">HOME</a>
+    <a th:href="@{/auta/}">AUTA</a>
+    <a th:href="@{/pracownicy/}">PRACOWNICY</a>
+    <a th:href="@{/statystyki/}">STATYSTYKI</a>
+    <a th:href="@{/przychody/}">PRZYCHODY</a>
     <div class="dropdown">
         <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
             <i class="fa fa-caret-down"></i>
@@ -29,8 +29,7 @@
 
 <table>
     <thead>
-    <tr background-color="yellow">
-
+    <tr>
         <th> Marka </th>
         <th> Model </th>
         <th> Rocznik </th>
@@ -49,10 +48,11 @@
         <td><span th:text="${samochod.rocznik}"> Rocznik </span></td>
         <td><span th:text="${samochod.numerRej}"> Numer Rejestracyjny </span></td>
         <td><span th:text="${samochod.kolor}"> Kolor </span></td>
+        <td><span th:text="${samochod.czyWypozyczone}"> Status </span></td>
         <td><span th:text="${samochod.samochod_oddzialu.miejscowosc}"> Oddział </span></td>
         <td><a th:href="@{register}">Edytuj</a></td>
-        <td><a th:href="@{register}">Usuń</a></td>
-        <td><a th:href="@{'/auta/'+ ${samochod.idSamochod}}">Pokaż szczegóły</a></td>
+        <td><a th:href="@{register}">Usun</a></td>
+        <td><a th:href="@{'/auta/'+ ${samochod.idSamochod}}">Pokaz szczegóły</a></td>
         <!--<td><a th:href="@{'/appel/edit/' + ${appel.id}}">edit</a></td>-->
     </tr>
     </tbody>

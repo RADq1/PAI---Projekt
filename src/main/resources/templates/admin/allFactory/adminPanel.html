@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <style>
-        body{
-            background-image: url("../image/cars.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;}
-    </style>
     <meta charset="UTF-8">
     <title>Panel Administratora</title>
     <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
@@ -17,11 +9,11 @@
 
 
 <div class="navbar">
-    <a href="../" >Strona główna</a>
     <a th:href="@{/auta/}">AUTA</a>
     <a th:href="@{/pracownicy/}" >PRACOWNICY</a>
     <a th:href="@{/statystyki/}">STATYSTYKI</a>
     <a th:href="@{/przychody/}">PRZYCHODY</a>
+    <a th:href="@{/zlecenia/}">ZLECENIA</a>
     <div class="dropdown">
         <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
             <i class="fa fa-caret-down"></i>
@@ -34,7 +26,6 @@
         </div>
     </div>
 </div>
-<hr>
 <h1>Witaj Administratorze </h1>
 <h2> Z tego miejsca masz podgląd  na wszystkie funkcjonalności</h2>
 </body>

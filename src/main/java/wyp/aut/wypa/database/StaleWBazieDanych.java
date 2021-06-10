@@ -22,7 +22,7 @@ public class StaleWBazieDanych {
 
 
 
-    /*@Bean
+    @Bean
     CommandLineRunner dodanieAut(SamochodRepository samochodRepository, OddzialRepo oddzialRepo, PracownikRepo pracownikRepo)
     {
         return args -> {
@@ -89,7 +89,7 @@ public class StaleWBazieDanych {
             pracownikRepo.save(new Pracownik("Bartosz","Walaszek", Stanowisko.Zarzad,oddzialGda));
 
         };
-    }*/
+    }
 
 
 }

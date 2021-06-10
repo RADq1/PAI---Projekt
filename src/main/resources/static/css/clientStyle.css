@@ -1,9 +1,18 @@
 h2 {
-    font-family: sans-serif;
+    font-family: cursive;
     font-size: 1.5em;
     text-transform: uppercase;
+     border-style: solid;
+     background-color:yellow;
+     text-align:center;
 }
+h1 {
+    text-align: center;
+    font-family: Marker Felt;
+    text-shadow: 0.1em 0.1em #333;
+    color:yellow;
 
+}
 strong {
     font-weight: 700;
     background-color: yellow;
@@ -11,6 +20,9 @@ strong {
 
 p {
     font-family: sans-serif;
+    font-style: oblique;
+
+
 }
 .topMenu {
     font-weight: 700;
@@ -85,31 +97,10 @@ p {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-body
-{
-    background-image: url("/image/cars.png");
+
+#obramowka {
+ border-style: solid;
+ background-color: #c2b280;
+ opacity:0.8;
+
 }
-
-table{
-
-	    width: 100%;
-	    border-collapse: collapse;
-	    border-spacing: 0;
-	    margin-bottom: 1%;
-	}
-
-
-table td,th a:hover, .dropdown:hover .dropbtn{
-	    font-size: 14px;
-	    border-top: 1px solid #ddd;
-	    padding: 5px 12px;
-	    text-align: center;
-	    vertical-align: top;
-	    background-color: #f3f3f3;
-
-
-	}
-/*table tbody tr:nth-child(even) td {
-	    background-color: #f3f3f3;
-	}
-*/
