@@ -17,6 +17,9 @@ import wyp.aut.wypa.repository.WypozyczanieRepo;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
 import java.util.Optional;
 
 @Controller
@@ -72,12 +75,19 @@ public class KlientController {
         System.out.println(wypozyczenie.getDataOddania());
         System.out.println(wypozyczenie.getDataWypożyczenia());
         wypozyczanieRepo.save(wypozyczenie);
-
+        //wyciagniecie danych z rejestracji
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Klient klient = (Klient)auth.getPrincipal();
         model.addAttribute("test", klient);
 
+        //minimalna data
+        DateTimeFormatter bla = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate minData = LocalDate.now();
+        minData.format(bla);
+        System.out.println(minData);
 
+        model.addAttribute("minDate", minData);
+        //System.out.println(LocalDate.now().format(bla));
         return "success";
     }
 
