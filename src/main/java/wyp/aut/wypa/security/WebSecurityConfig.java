@@ -37,10 +37,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/clientPanel").hasAnyAuthority("ROLE_USER")
                 .and()
                 .formLogin();
-       /* http.authorizeRequests()
+        http.authorizeRequests()
               .antMatchers("/adminPanel").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/adminPanel/**").hasAnyAuthority("ROLE_ADMIN")
                 .and()
-                .formLogin();*/
+                .formLogin();
     }
 }

@@ -31,7 +31,7 @@ public class Oddzial {
     }
 
     public Oddzial(String miejscowosc) {
-        miejscowosc = miejscowosc;
+        this.miejscowosc = miejscowosc;
     }
 
     public String getMiejscowosc() {

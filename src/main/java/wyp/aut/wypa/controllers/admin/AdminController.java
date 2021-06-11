@@ -72,7 +72,7 @@ public class AdminController {
     @GetMapping("/factory/{id}/auta")
     public String carsInFactory(@PathVariable Long id,Model model) {
         model.addAttribute("samochody", samochodRepository.findAll());
-        model.addAttribute("oddzial", oddzialRepo.findById(id).get());
+        model.addAttribute("oddzial", oddzialRepo.getOne(id));
         return "/admin/singleFactory/carInFactory";
     }
 
