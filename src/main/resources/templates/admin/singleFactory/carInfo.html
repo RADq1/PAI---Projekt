@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Szczegółowe informacje </title>
     <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -22,13 +24,22 @@
             <a th:href="@{/factory/3}">GDAŃSK</a>
             <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
         </div>
-
+    </div>
         <a th:href="@{./}">COFNIJ</a>
 </div>
+    </div>
+
 
 
 
 <h1>Szczegółowe informacje dotyczące auta <td><span th:text="${car.marka}"/> <td><span th:text="${car.model}"/> </td>  </h1>
+<div id="obramowka">
+
+<p>Marka pojazdu: <span th:text="${car.marka}"/></p>
+<p>Model pojazdu: <span th:text="${car.model}"/></p>
+<p>Spalanie (l/100km): <span th:text="${car.spalanie}"/></p>
+<p>Cena za 24h: <span th:text="${car.cena24}"/> PLN</p>
+</div>
 <!--//todo wprowadzic informacje o aucie-->
 </body>
 </html>

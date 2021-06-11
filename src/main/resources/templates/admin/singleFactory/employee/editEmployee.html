@@ -25,8 +25,9 @@
             <a th:href="@{/factory/3}">GDAŃSK</a>
             <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
         </div>
-        <a th:href="@{./}">COFNIJ</a>
     </div>
+        <a th:href="@{./}">COFNIJ</a>
+
 </div>
 <h2 id="dodaj">Edycja Pracownika <td><span th:text="${employee.imie}"/> <td><span th:text="${employee.nazwisko}"/> </td> </h2>
 <div id="obramowka">
@@ -37,7 +38,7 @@
             <input type="number" th:name="Pensja"/><br>
         </tr>
     </table>
-    <input type="submit" value="Save"/>
+    <input type="submit" value="Zapisz"/>
 </form>
 </div>
 
