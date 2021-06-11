@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Wszystkie Auta</title>
+    <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar">
+    <a th:href="@{/adminPanel/}">HOME</a>
+    <a th:href="@{/auta/}">AUTA</a>
+    <a th:href="@{/allEmployee/}">PRACOWNICY</a>
+    <a th:href="@{/statystyki/}">STATYSTYKI</a>
+    <a th:href="@{/przychody/}">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+        <a th:href="@{./}">COFNIJ</a>
+    </div>
+</div>
+<h2 id="dodaj">Edycja Pracownika <td><span th:text="${employee.imie}"/> <td><span th:text="${employee.nazwisko}"/> </td> </h2>
+<div id="obramowka">
+<form th:action="@{'/allEmployee/'+${employee.idPracownik}+'/edit/'}" method="post"   th:object="${employee}">
+    <table>
+        <tr>
+            <p>Nową cenę za dzień wypożyczenia auta</p>
+            <input type="number" th:name="Pensja"/><br>
+        </tr>
+    </table>
+    <input type="submit" value="Save"/>
+</form>
+</div>
+
+</body>
+</html>

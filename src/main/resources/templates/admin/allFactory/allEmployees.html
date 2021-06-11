@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Wszystkie Auta</title>
+    <title>Wszyscy Pracownicy</title>
     <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
 </head>
 <body>
@@ -27,35 +27,37 @@
     <a th:href="@{./}">COFNIJ</a>
 </div>
 
-
 <table>
     <thead>
     <tr>
-        <th> Marka </th>
-        <th> Model </th>
-        <th> Rocznik </th>
-        <th> Numer Rejestracyjny </th>
-        <th> Kolor </th>
-        <th> Czy  Auto jest wypożyczone </th>
+        <th> Imie  </th>
+        <th> Nazwisko </th>
+        <th> Pensja za miesiąc </th>
+        <th> Stanowisko </th>
         <th> Oddział </th>
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${samochody.empty}">
-        <td colspan="2"> Brak Aut </td>
+    <tr th:if="${employees.empty}">
+        <td colspan="2"> Brak Pracowników </td>
     </tr>
-    <tr th:each="samochod : ${samochody}">
-        <td><span th:text="${samochod.marka}"> Marka </span></td>
-        <td><span th:text="${samochod.model}"> Model </span></td>
-        <td><span th:text="${samochod.rocznik}"> Rocznik </span></td>
+    <tr th:each="employee : ${employees}">
+        <td><span th:text="${employee.imie}"> </span></td>
+        <td><span th:text="${employee.nazwisko}"> </span></td>
+        <td><span th:text="${employee.pensja}"> </span></td>
+        <td><span th:text="${employee.stanowisko}"> </span></td>
+        <td><span th:text="${employee.pracownik_oddzialu.miejscowosc}"> </span></td>
+        <td><a th:href="@{'/allEmployee/' + ${employee.idPracownik} +'/edit/'}">Zmien Wynagrodzenie</a></td>
+        <td><a th:href="@{/deleteEmployee/}">Zwolnij</a></td>
+
+      <!--  <td><span th:text="${samochod.model}"> </span></td>
+        <td><span th:text="${samochod.rocznik}"> </span></td>
         <td><span th:text="${samochod.numerRej}"> Numer Rejestracyjny </span></td>
-        <td><span th:text="${samochod.kolor}"> Kolor </span></td>
-        <td><span th:text="${samochod.czyWypozyczone}"> Status </span></td>
         <td><span th:text="${samochod.samochod_oddzialu.miejscowosc}"> Oddział </span></td>
         <td><a th:href="@{'/auta/' + ${samochod.idSamochod} +'/edit/'}">Edytuj</a></td>
         <td><a th:href="@{register}">Usun</a></td>
         <td><a th:href="@{'/auta/'+ ${samochod.idSamochod}}">Pokaz szczegóły</a></td>
-        <td><a th:href="@{'/auta/zleceniaAuta/'+ ${samochod.idSamochod}}">Zlecenia Auta</a></td>
+        <td><a th:href="@{'/auta/zleceniaAuta/'+ ${samochod.idSamochod}}">Zlecenia Auta</a></td>-->
     </tr>
     </tbody>
 </table>

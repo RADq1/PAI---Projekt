@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja Auta </title>
+    <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="navbar">
+    <a th:href="@{/adminPanel/}">HOME</a>
+    <a th:href="pracownicy" >PRACOWNICY</a>
+    <a href="statystyki">STATYSTYKI</a>
+    <a th:href="factoryInfo">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div>
+    <a th:href="@{./}">COFNIJ</a>
+</div>
+<h2>Edycja auta <td><span th:text="${car.marka}"/> <td><span th:text="${car.model}"/> </td> <br>
+Numer Rejestracyjny <td><span th:text="${car.numerRej}"/> <img src="http://plate.thearczi.pl/CBY20343/poland"</h2>
+<div id="obramowka">
+<form th:action="@{'/auta/'+${car.idSamochod}+'/edit/'}" method="post"   th:object="${car}">
+    <table>
+        <tr>
+            <p>Nową cenę za dzień wypożyczenia auta</p>
+            <input type="text" th:name="cena24"/><br>
+        </tr>
+        <p>Wybierz oddział do jakiego chcesz przypisać auto</p>
+        <select th:name="id">
+            <option value="0">Oddział</option>
+            <option th:each="ksiazka : ${oddzialy}"
+                    name="miejscowosc"
+                    th:value="${ksiazka.id}"
+                    th:text="${ksiazka.miejscowosc}"></option>
+        </select>
+
+    </table>
+    <input type="submit" value="Zapisz"/>
+</form>
+</div>
+</body>
+</html>

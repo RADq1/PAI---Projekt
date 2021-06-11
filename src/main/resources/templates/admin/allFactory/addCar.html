@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administratora</title>
+    <link  th:href="@{/css/adminStyle.css}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="navbar">
+    <a th:href="@{/auta/}">AUTA</a>
+    <a th:href="@{/allEmployee/}" >PRACOWNICY</a>
+    <a th:href="@{/statystyki/}">STATYSTYKI</a>
+    <a th:href="@{/przychody/}">PRZYCHODY</a>
+    <div class="dropdown">
+        <button class="dropbtn">WYBIERZ KONKRETNY ODDZIAŁ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
+        </div>
+    </div>
+    <a th:href="@{./}">COFNIJ</a>
+</div>
+
+<form th:action="@{/addCar}" method="post">
+    <p id="dodaj">DODANIE AUTA</p>
+    <div id="obramowka">
+   <p>Marka:</p>
+    <input type="text" th:name="marka"/><br>
+
+    <p>Model:</p>
+    <input type="text" th:name="model"/><br>
+
+    <p>Rocznik:</p>
+    <input type="number" th:name="rocznik"/><br>
+
+    <p>Numer rejestracyjny samochodu:</p>
+    <input type="text" th:name="numerRej"/><br>
+
+
+    <p>Kolor samochodu:</p>
+    <select name="color">
+        <option th:each="colorOpt : ${T(wyp.aut.wypa.Enums.Kolor).values()}"
+                th:value="${colorOpt}" th:text="${colorOpt}"></option>
+    </select>
+
+    <p>Pojemność samochodu:</p>
+    <input type="number" th:name="pojemnosc"/><br>
+
+    <p>Przebieg samochodu:</p>
+    <input type="number" th:name="przebieg"/><br>
+
+    <p>Spalanie:</p>
+    <input type="number" th:name="spalanie"/><br>
+
+    <p>Cena za dzień wynajmu:</p>
+    <input type="number" th:name="cena24"/><br>
+
+    <p>Data przeglądu:</p>
+    <input type="date" th:name="terminPrzegladu"/><br>
+
+    <p>Data końca OC:</p>
+    <input type="date" th:name="OC"/><br><br>
+
+    <input id="guzik" type="submit"/>
+    </center>
+    </div>
+</form>
+
+
+
+</body>
+</html>

@@ -1,16 +1,16 @@
 package wyp.aut.wypa.Enums;
 //Enumy podajemy w tabeli w formie liczby, od zera
 public enum Kolor {
-    BIALY,
+    BIAŁY,
     ZIELONY,
     CZERWONY,
     CZARNY,
-    POMARANCZOWY,
+    POMARAŃCZOWY,
     GRANATOWY,
     NIEBIESKI,
     SZARY,
     SREBRNY,
-    ZOLTY
+    ZÓŁTY
     //TODO
     //Ew jakies kolory, ale chyba styknie
 }

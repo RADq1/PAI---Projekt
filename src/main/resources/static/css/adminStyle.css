@@ -1,7 +1,17 @@
 h2 {
-    font-family: sans-serif;
+    font-family: cursive;
     font-size: 1.5em;
     text-transform: uppercase;
+     border-style: solid;
+     background-color:yellow;
+     text-align:center;
+}
+h1 {
+    text-align: center;
+    font-family: Marker Felt;
+    text-shadow: 0.1em 0.1em #333;
+    color:yellow;
+
 }
 
 strong {
@@ -10,7 +20,8 @@ strong {
 }
 
 p {
-    font-family: sans-serif;
+    font-family: 'Staatliches', cursive;
+    font-size:large;
 }
 .topMenu {
     font-weight: 700;
@@ -89,7 +100,6 @@ body
 {
     background-image: url("/image/cars.png");
 }
-
 table{
 
 	    width: 100%;
@@ -109,7 +119,45 @@ table td,th a:hover, .dropdown:hover .dropbtn{
 
 
 	}
-/*table tbody tr:nth-child(even) td {
-	    background-color: #f3f3f3;
-	}
-*/
+
+
+    #dodaj {
+
+        font-family: cursive;
+        font-size: 1.5em;
+        text-transform: uppercase;
+         border-style: solid;
+         background-color:yellow;
+         text-align:center;
+    }
+
+#obramowka {
+border-width:1px;
+ border-style: solid;
+ background-color: #c2b280;
+ opacity:0.8;
+  padding-left:20px;
+padding-bottom:20px;
+}
+input {
+width:20%;
+height:30px;
+
+}
+select {
+width:20%;
+height:30px;
+}
+#guzik {
+     background-color: #4CAF50; /* Green */
+     color: white;
+     font-size: 24px;
+
+     }
+#guzik:hover {
+    font-size: 24px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}

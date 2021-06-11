@@ -17,8 +17,7 @@
 <body>
 <div class="navbar">
     <a href="../" >Strona główna</a>
-    <a href="orderCar" >Wynajmij auto</a>
-    <a href="complaint" >Reklamacje</a>
+    <a href="myCars">Twoje samochody</a>
     <a href="clientPanel">Wróc do panelu klienta</a>
 </div>
 
@@ -30,24 +29,27 @@
         <th> Model </th>
         <th> Rocznik </th>
         <th> Numer Rejestracyjny </th>
-        <th> Pojemność silnika </th>
-        <th> Spalanie: </th>
+        <th> Pojemność</th>
+        <th> Spalanie(l/100km) </th>
         <th> Kolor </th>
         <th> Oddział </th>
     </tr>
     </thead>
     <tbody>
+    <!--<form th:action="@{/accept}" method="post">-->
     <tr th:each="samochod : ${samochody}">
-        <td><span th:text="${samochod.marka}"> Marka </span></td>
-        <td><span th:text="${samochod.model}"> Model </span></td>
-        <td><span th:text="${samochod.rocznik}"> Rocznik </span></td>
-        <td><span th:text="${samochod.numerRej}"> Numer Rejestracyjny </span></td>
-        <td><span th:text="${samochod.pojemnosc}"> Pojemność </span></td>
-        <td><span th:text="${samochod.spalanie}"> Spalanie(l/100km)  </span></td>
-        <td><span th:text="${samochod.kolor}"> Kolor </span></td>
-        <td><span th:text="${samochod.samochod_oddzialu.miejscowosc}"> Oddział </span></td>
-
+        <td th:text="${samochod.marka}"></td>
+        <td th:text="${samochod.model}"></td>
+        <td th:text="${samochod.rocznik}"></td>
+        <td th:text="${samochod.numerRej}"></td>
+        <td th:text="${samochod.pojemnosc}"></td>
+        <td th:text="${samochod.spalanie}"></td>
+        <td th:text="${samochod.kolor}"></td>
+        <td th:text="${samochod.samochod_oddzialu.miejscowosc}"></td>
+        <td><a th:href="@{'/listCars/'+ ${samochod.idSamochod}}"><button>Wypożycz</button></a></td>
+        <!--<td><input type="submit" value="Wypożycz"></td>-->
     </tr>
+    <!--</form>-->
     </tbody>
 </table>
 

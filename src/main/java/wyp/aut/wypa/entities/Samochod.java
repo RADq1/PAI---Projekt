@@ -2,11 +2,11 @@ package wyp.aut.wypa.entities;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.format.annotation.DateTimeFormat;
 import wyp.aut.wypa.Enums.Kolor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +38,11 @@ public class Samochod {
     @Column
     Double cena24;
     //terminy przegladu date?
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column
     LocalDate terminPrzegladu;
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate OC;
     @Column
     Boolean czyWypozyczone=false;
@@ -218,5 +221,12 @@ public class Samochod {
         this.usterkiAuta = usterkiAuta;
     }
 
-
+    @Override
+    public String toString() {
+        return "Samochod{" +
+                "idSamochod=" + idSamochod +
+                ", marka='" + marka + '\'' +
+                ", model='" + cena24 + '\'' +
+                '}';
+    }
 }

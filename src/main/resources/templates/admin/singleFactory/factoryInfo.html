@@ -10,7 +10,7 @@
 <div class="navbar">
     <!--<a th:href="adminPanel">START</a>-->
     <a th:href="${oddzial.id} +'/auta'">AUTA</a>
-    <a th:href="pracownicy" >PRACOWNICY</a>
+    <a th:href="${oddzial.id} +'/employee'" >PRACOWNICY</a>
     <a href="statystyki">STATYSTYKI</a>
     <a href="przychody">PRZYCHODY</a>
     <div class="dropdown">
@@ -24,6 +24,7 @@
             <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
         </div>
     </div>
+    <a th:href="@{./}">COFNIJ</a>
 </div>
 
 <h1>Szczegółowe informacje dotyczące auta <td><span th:text="${oddzial.id}"/>  </h1>

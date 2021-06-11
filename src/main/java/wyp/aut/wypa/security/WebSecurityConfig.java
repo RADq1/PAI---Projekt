@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().disable();
         http.authorizeRequests()
                 .antMatchers("/employeePanel").hasAnyAuthority("ROLE_EMPLOYEE")
+                .antMatchers("/adminPanel").hasAnyAuthority("ROLE_USER")
                 .antMatchers("/clientPanel").hasAnyAuthority("ROLE_USER")
                 .and()
                 .formLogin();

@@ -8,8 +8,7 @@
 <body>
 
 <div class="navbar">
-    <a th:href="adminPanel">START</a>
-    <a th:href="auta">AUTA</a>
+    <a th:href="@{/adminPanel/}">HOME</a>
     <a th:href="pracownicy" >PRACOWNICY</a>
     <a href="statystyki">STATYSTYKI</a>
     <a href="przychody">PRZYCHODY</a>
@@ -18,12 +17,16 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a th:action="@{/allCarsFactory}" th:method="get">Bydgoszcz</a>
-            <a href="torun">Toruń</a>
-            <a href="gdansk">Gdańsk</a>
+            <a th:href="@{/factory/1}">BYDGOSZCZ</a>
+            <a th:href="@{/factory/2}">TORUŃ</a>
+            <a th:href="@{/factory/3}">GDAŃSK</a>
+            <a th:href="@{/adminPanel/}">WSZYSTKIE NARAZ</a>
         </div>
-    </div>
+
+        <a th:href="@{./}">COFNIJ</a>
 </div>
+
+
 
 <h1>Szczegółowe informacje dotyczące auta <td><span th:text="${car.marka}"/> <td><span th:text="${car.model}"/> </td>  </h1>
 <!--//todo wprowadzic informacje o aucie-->

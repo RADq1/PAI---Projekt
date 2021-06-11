@@ -1,20 +1,7 @@
 package wyp.aut.wypa.database;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import wyp.aut.wypa.Enums.Kolor;
-import wyp.aut.wypa.Enums.Stanowisko;
-import wyp.aut.wypa.entities.Oddzial;
-import wyp.aut.wypa.entities.Pracownik;
-import wyp.aut.wypa.entities.Samochod;
-import wyp.aut.wypa.repository.OddzialRepo;
-import wyp.aut.wypa.repository.PracownikRepo;
-import wyp.aut.wypa.repository.SamochodRepository;
-
-import java.time.LocalDate;
 
 @Configuration
 public class StaleWBazieDanych {
@@ -22,7 +9,7 @@ public class StaleWBazieDanych {
 
 
 
-    @Bean
+    /*@Bean
     CommandLineRunner dodanieAut(SamochodRepository samochodRepository, OddzialRepo oddzialRepo, PracownikRepo pracownikRepo)
     {
         return args -> {
@@ -89,7 +76,7 @@ public class StaleWBazieDanych {
             pracownikRepo.save(new Pracownik("Bartosz","Walaszek", Stanowisko.Zarzad,oddzialGda));
 
         };
-    }
+    }*/
 
 
 }

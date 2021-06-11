@@ -23,6 +23,6 @@ public class CzasPracy {
     String sumaGodzin;
     @Column
     LocalDate data;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Pracownik czasPracyPracownika;
+/*    @OneToOne(cascade = CascadeType.ALL)
+    private Pracownik czasPracyPracownika;*/
 }

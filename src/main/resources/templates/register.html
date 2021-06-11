@@ -12,6 +12,8 @@
     <meta charset="UTF-8">
     <title>Rejestracja</title>
     <link  th:href="@{/css/clientStyle.css}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="navbar">
@@ -26,49 +28,52 @@
 
         <h2>Rejestracja</h2>
         <div id="obramowka">
-        <p>(*)Login:</p>
-        <input type="text" maxlength="15" th:name="username"/><br>
-        <p>Maximum 15 znaków, nie może się powtarzać</p>
-            <label><p>(*)Hasło: </p></label>
-        <input type="password" th:name="password"/><br>
-        <p>(*)Email</p>
-        <input type="text" th:name="email"/><br>
-        <p>(*)Imię: </p>
-        <input type="text" th:name="imie"/><br>
-        <p>(*)Nazwisko: </p>
-        <input type="text" th:name="nazwisko"/><br>
-        <p>(*)Nr telefonu: </p>
-        <input type="text" th:name="nrTel"/><br>
-        <p>Maximum 9 znaków</p>
-        <p>(*)PESEL: </p>
-        <input type="text" th:name="PESEL"/><br>
-        <p>Maximum 11 znaków</p>
-        <h5> Wszystkie pola z * są wymagane do rejestracji</h5>
-        <div>
-        <h5> Wyrażam zgodę na przetwarzanie danych osobowych </h5>
-        <input type="checkbox"><br>
+            <form>
+            <p>Login</p>
+            <input type="text" maxlength="15" th:name="username"/>*<br>
+                <div id="odstep">Maksymalnie 15 znaków, nie może się powtarzać</div>
+            <label><p>Hasło  </p></label>
+            <input type="password" th:name="password"/>*<br>
+            <p>   Email</p>
+            <input type="text" th:name="email"/>*<br>
+            <p>Imię</p>
+            <input type="text" th:name="imie"/>*<br>
+            <p>Nazwisko </p>
+            <input type="text" th:name="nazwisko"/>*<br>
+            <p>Nr telefonu  </p>
+            <input type="text" maxlength="9" th:name="nrTel"/>*<br>
+                <div id="odstep">Maximum 9 znaków</div>
+            <p>PESEL  </p>
+            <input type="text" maxlength="11" th:name="PESEL"/>*<br>
+                <div id="odstep">Maximum 11 znaków</div>
+            <h5> Wszystkie pola z * są wymagane do rejestracji</h5>
+            <div>
+                <h5> Wyrażam zgodę na przetwarzanie danych osobowych  <input type="checkbox"></h5>
+                <br>
+            </div>
+            <input id="guzik" type="submit" value="ZAREJESTRUJ SIĘ"/>
         </div>
-        <input type="submit"/> -->
-        </div>
-  <!--  <p>(*)Podaj login:</p>
-    <input type="text" th:name="username"/><br>
-    <p>Maximum 15 znaków, nie może się powtarzać</p>
-    <p>(*)Podaj hasło: </p>
-    <input type="text" th:name="password"/><br>
-    <p>(*)Podaj email</p>
-    <input type="text" th:name="email"/><br>
-    <p>(*)Podaj imię: </p>
-    <input type="text" th:name="imie"/><br>
-    <p>(*)Podaj nazwisko: </p>
-    <input type="text" th:name="nazwisko"/><br>
-    <p>(*)Podaj numer telefonu: </p>
-    <input type="text" th:name="nrTel"/><br>
-    <p>Maximum 9 znaków</p>
-    <p>(*)Podaj PESEL: </p>
-    <input type="text" th:name="PESEL"/><br>
-    <p>Maximum 11 znaków</p>
-    <h5> Wszystkie pola z * są wymagane do rejestracji</h5>
-    <input type="submit"/> -->
+    </form>
+    </table>
+        <!--  <p>(*)Podaj login:</p>
+          <input type="text" th:name="username"/><br>
+          <p>Maximum 15 znaków, nie może się powtarzać</p>
+          <p>(*)Podaj hasło: </p>
+          <input type="text" th:name="password"/><br>
+          <p>(*)Podaj email</p>
+          <input type="text" th:name="email"/><br>
+          <p>(*)Podaj imię: </p>
+          <input type="text" th:name="imie"/><br>
+          <p>(*)Podaj nazwisko: </p>
+          <input type="text" th:name="nazwisko"/><br>
+          <p>(*)Podaj numer telefonu: </p>
+          <input type="text" th:name="nrTel"/><br>
+          <p>Maximum 9 znaków</p>
+          <p>(*)Podaj PESEL: </p>
+          <input type="text" th:name="PESEL"/><br>
+          <p>Maximum 11 znaków</p>
+          <h5> Wszystkie pola z * są wymagane do rejestracji</h5>
+          <input type="submit"/> -->
     </table>
 </div></form>
 <p><b>UWAGA!!! PO STWORZENIU KONTA, NALEŻY JE AKTYWOWAC ZA POMOCĄ LINKU OTRZYMANEGO NA MAILA!</b></p>

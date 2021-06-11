@@ -19,9 +19,8 @@ strong {
 }
 
 p {
-    font-family: sans-serif;
-    font-style: oblique;
-
+  font-family: 'Staatliches', cursive;
+  font-size:large;
 
 }
 .topMenu {
@@ -99,8 +98,45 @@ p {
 }
 
 #obramowka {
+border-width:1px;
  border-style: solid;
  background-color: #c2b280;
  opacity:0.8;
+  padding-left:20px;
+padding-bottom:20px;
+}
+input[type=text]{
+width:20%;
+height:30px;
+
+}
+input[type=password]{
+width:20%;
+height:30px;
+
+}
+
+#odstep{
+font-family: 'Lobster', cursive;
+}
+
+h5{
+font-family: 'Lobster', cursive;
+}
+input[type=checkbox]{
+width:20px;
+height:20px;
+}
+#guzik {
+     background-color: #4CAF50; /* Green */
+     color: white;
+     font-size: 24px;
+
+     }
+#guzik:hover {
+    font-size: 24px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
 }
