@@ -13,6 +13,17 @@
             align-content: center;
             justify-content: center;
             flex-direction: column;}
+        .spanik{
+            margin-left: 70%;
+            text-align: right;
+            color: #dddddd;
+            padding-right: 20px;
+        }
+        logout{
+            margin-left: 93%;
+            background-color: #3b4148;
+            padding-right: 20px;
+        }
     </style>
     <meta charset="UTF-8">
     <title>Wynajmij auto</title>
@@ -24,8 +35,11 @@
     <a href="../clientPanel">Wróc do panelu klienta</a>
     <a href="myCars">Twoje samochody</a>
     <a href="./" >Cofnij</a>
-</div>
+    <a href="/logout">Wyloguj się</a>
+    <div class="spanik">Witaj,<span th:text="${klient.imie}"></span></div>
 
+
+</div>
 <h1>Informacje dotyczące wynajmu wybranego samochodu<br></h1>
 
     <p>Marka pojazdu: <span th:text="${car.marka}"/></p>

@@ -55,6 +55,9 @@ public class KlientController {
         /*Optional<Samochod> temp = samochodRepository.findById(samochod.getIdSamochod());
         model.addAttribute("auto", samochod);
         System.out.println(temp); */
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Klient klient = (Klient)auth.getPrincipal();
+        model.addAttribute("klient", klient);
         return "listCars";
     }
 
@@ -104,8 +107,12 @@ public class KlientController {
     }
 
     @GetMapping("/accept")
-    public String accept()
+    public String accept(Model model)
     {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Klient klient = (Klient)auth.getPrincipal();
+        model.addAttribute("klient", klient);
         return "accept";
     }
 

@@ -9,6 +9,17 @@
             background-position: center center;
             background-attachment: fixed;
             text-align-all: center;}
+        .spanik{
+            margin-left: 70%;
+            text-align: right;
+            color: #dddddd;
+            padding-right: 20px;
+        }
+        logout{
+            margin-left: 93%;
+            background-color: #3b4148;
+            padding-right: 20px;
+        }
     </style>
     <meta charset="UTF-8">
     <title>Panel Klienta</title>
@@ -19,6 +30,9 @@
     <a href="../" >Strona główna</a>
     <a href="myCars">Twoje samochody</a>
     <a href="clientPanel">Wróc do panelu klienta</a>
+    <a href="/logout">Wyloguj się</a>
+    <div class="spanik">Witaj,<span th:text="${klient.imie}"></span></div>
+
 </div>
 
 <h1>Lista samochodów</h1>

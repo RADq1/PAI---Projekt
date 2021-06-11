@@ -8,6 +8,17 @@
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;}
+        .spanik{
+            margin-left: 70%;
+            text-align: right;
+            color: #dddddd;
+            padding-right: 20px;
+        }
+        logout{
+            margin-left: 93%;
+            background-color: #3b4148;
+            padding-right: 20px;
+        }
     </style>
     <meta charset="UTF-8">
     <title>Reklamacja</title>
@@ -19,6 +30,9 @@
     <a href="listCars">Lista samochodów</a>
     <a href="clientPanel">Wróc do panelu klienta</a>
     <a href="./" >Cofnij</a>
+    <a href="/logout">Wyloguj się</a>
+    <div class="spanik">Witaj,<span th:text="${klient.imie}"></span></div>
+
 </div>
 <br>
 <!-- formularz do wypelnienia, zeby wynajac auto) -->
